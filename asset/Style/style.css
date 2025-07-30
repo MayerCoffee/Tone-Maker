@@ -44,8 +44,8 @@ p {
 
 /* Texte normal (noir) par défaut */
 .text-gradient {
-    color: black;
-    transition: all 0.3s ease;
+    color: #21013b;
+    transition: all 3s ease;
 }
 
 /* Hover : contour et texte en dégradé */
