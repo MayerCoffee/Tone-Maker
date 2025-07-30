@@ -32,20 +32,45 @@ p {
 /* CTA */
 .btn-contact {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 1.5px solid #e40606;
-    background: linear-gradient(to right, #23da9d, #39068a);
-    border-radius: 30px;
     padding: 14px 32px;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: border-color 0.2s ease;
+    border: 1.5px solid transparent;
+    border-radius: 30px;
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(to right, #3d0144, #9803aa) border-box;
+    transition: background 0.3s ease;
 }
+
+/* Texte normal (noir) par défaut */
+.text-gradient {
+    color: black;
+    transition: all 0.3s ease;
+}
+
+/* Hover : contour et texte en dégradé */
 .btn-contact:hover {
-    background: #f9f4ff;
-    border: none;
-    color: #8a38f5;
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(to right, #23da9d, #36daff) border-box;
+}
+
+.btn-contact:hover .text-gradient {
+    background: linear-gradient(to right, #23da9d, #36daff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ✅ Active (clic) : fond entier en dégradé + texte #21013B */
+.btn-contact:active {
+    background: linear-gradient(to right, #23da9d, #36daff);
+}
+
+.btn-contact:active .text-gradient {
+    background: none;
+    color: #21013b;
+    -webkit-text-fill-color: #21013b;
 }
 
 /* Liste des éléments */
