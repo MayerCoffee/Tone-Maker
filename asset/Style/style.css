@@ -20,11 +20,11 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 12px;
-    background-color: #0d1117;
+    gap: 18px;
+    background-color: #0d11171a;
     border: 1px solid #2f81f7;
     border-radius: 300px;
-    padding: 10px 20px;
+    padding: 16px 14px;
 }
 
 /* Les boutons dans la barre */
@@ -42,8 +42,11 @@ header {
 }
 
 .value:hover,
-.value:focus {
-    background-color: #21262c;
+.value:focus,
+.value:hover {
+    background-color: #ffffff;
+    color: #0d1117;
+    border-radius: 300px;
 }
 
 .value:active {
