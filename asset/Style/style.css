@@ -13,21 +13,31 @@ header {
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    gap: 20px;
 }
 
-/* La barre principale */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    gap: 60px;
+    padding: 12px 20px;
+}
+
 .input {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 18px;
-    background-color: #0d11171a;
+    align-items: center;
+    gap: 12px;
+    background-color: #00000066;
     border: 1px solid #2f81f7;
     border-radius: 300px;
-    padding: 16px 14px;
+    padding: 12px 30px;
+    height: 70px;
 }
 
-/* Les boutons dans la barre */
+/* Style boutons */
 .value {
     background-color: transparent;
     border: none;
@@ -35,27 +45,25 @@ header {
     padding: 10px;
     display: flex;
     align-items: center;
-    gap: 5px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 300px;
     transition: all 0.2s ease;
+    white-space: nowrap; /* ✅ empêche le retour à la ligne */
+   min-width: 120px; /* ajuste si nécessaire */
+    justify-content: center;
+    text-align: center;
 }
-
-.value:hover,
-.value:focus,
 .value:hover {
     background-color: #ffffff;
     color: #0d1117;
-    border-radius: 300px;
 }
 
-.value:active {
-    background-color: #1a1f24;
-    outline: none;
-}
-
-.value svg {
-    width: 15px;
+/* Logo image */
+.nav-left img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 12px 20px;
 }
 
 /* CTA */
