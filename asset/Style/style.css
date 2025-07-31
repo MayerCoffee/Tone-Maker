@@ -12,7 +12,7 @@ body {
 header {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 4px;
     gap: 20px;
 }
 
@@ -49,7 +49,7 @@ header {
     border-radius: 300px;
     transition: all 0.2s ease;
     white-space: nowrap; /* ✅ empêche le retour à la ligne */
-   min-width: 120px; /* ajuste si nécessaire */
+    min-width: 120px; /* ajuste si nécessaire */
     justify-content: center;
     text-align: center;
 }
@@ -64,6 +64,106 @@ header {
     height: 35px;
     border-radius: 50%;
     padding: 12px 20px;
+}
+
+.carousel-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0; /* dessous la navbar */
+}
+
+.carousel {
+    animation: scrollUp 20s linear infinite;
+}
+
+.carousel img {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+@keyframes scrollUp {
+    0%,
+    6.07% {
+        transform: translateY(0vh);
+    }
+    7.14%,
+    13.21% {
+        transform: translateY(-100vh);
+    }
+    14.28%,
+    20.35% {
+        transform: translateY(-200vh);
+    }
+    21.42%,
+    27.49% {
+        transform: translateY(-300vh);
+    }
+    28.57%,
+    34.64% {
+        transform: translateY(-400vh);
+    }
+    35.71%,
+    41.78% {
+        transform: translateY(-500vh);
+    }
+    42.85%,
+    48.92% {
+        transform: translateY(-600vh);
+    }
+    50.00%,
+    56.07% {
+        transform: translateY(-700vh);
+    }
+    57.14%,
+    63.21% {
+        transform: translateY(-800vh);
+    }
+    64.28%,
+    70.35% {
+        transform: translateY(-900vh);
+    }
+    71.42%,
+    77.49% {
+        transform: translateY(-1000vh);
+    }
+    78.57%,
+    84.64% {
+        transform: translateY(-1100vh);
+    }
+    85.71%,
+    91.78% {
+        transform: translateY(-1200vh);
+    }
+    92.85%,
+    98.92% {
+        transform: translateY(-1300vh);
+    }
+    100% {
+        transform: translateY(0vh);
+    }
+}
+
+.carousel-container {
+    height: 100vh; /* ou selon ta navbar */
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    flex-direction: column;
+    animation: scrollUp 28s infinite;
+}
+
+.navbar {
+    position: relative;
+    z-index: 10; /* reste au-dessus */
 }
 
 /* CTA */
