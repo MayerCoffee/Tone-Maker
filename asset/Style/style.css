@@ -165,6 +165,11 @@ header {
     position: relative;
     z-index: 10; /* reste au-dessus */
 }
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* CTA */
 .btn-contact {
@@ -177,6 +182,29 @@ header {
     background: linear-gradient(white, white) padding-box,
         linear-gradient(to right, #3d0144, #9803aa) border-box;
     transition: background 0.3s ease;
+}
+.img-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 100px auto;
+}
+
+.item {
+    --total: 14;
+    --angle: calc(360deg / var(--total) * var(--i));
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(var(--angle)) translate(800px)
+        rotate(calc(-1 * var(--angle)));
+}
+
+.item img {
+    width: 180px;
+    height: auto; /* Garde la proportion */
+    object-fit: contain; /* Pas de découpe */
+    border: none; /* Supprime tout effet de cercle */
 }
 
 /* Texte normal (noir) par défaut */
