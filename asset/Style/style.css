@@ -27,7 +27,7 @@ header {
 }
 .navbar {
     position: fixed;
-    z-index: 10; /* reste au-dessus */
+    z-index: 10; /
 }
 /* Logo image */
 .nav-left img {
