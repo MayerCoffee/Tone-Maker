@@ -25,7 +25,17 @@ header {
     gap: 60px;
     padding: 12px 20px;
 }
-
+.navbar {
+    position: fixed;
+    z-index: 10; /* reste au-dessus */
+}
+/* Logo image */
+.nav-left img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 12px 20px;
+}
 .input {
     display: flex;
     align-items: center;
@@ -56,14 +66,6 @@ header {
 .value:hover {
     background-color: #ffffff;
     color: #0d1117;
-}
-
-/* Logo image */
-.nav-left img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    padding: 12px 20px;
 }
 
 .carousel-background {
@@ -161,10 +163,6 @@ header {
     animation: scrollUp 28s infinite;
 }
 
-.navbar {
-    position: relative;
-    z-index: 10; /* reste au-dessus */
-}
 .img-container {
     display: flex;
     justify-content: center;
@@ -182,39 +180,6 @@ header {
     background: linear-gradient(white, white) padding-box,
         linear-gradient(to right, #3d0144, #9803aa) border-box;
     transition: background 0.3s ease;
-}
-.img-container {
-    position: absolute;
-    top: 75%;
-    right: 80%; /* Place à droite hors de la page */
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    overflow: visible;
-    pointer-events: none; /* Évite de bloquer les clics */
-}
-
-.item {
-    --total: 14;
-    --angle: calc(360deg / var(--total) * var(--i));
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    transform: rotate(var(--angle)) translate(800px)
-        rotate(calc(-1 * var(--angle)));
-}
-
-.item img {
-    width: 180px;
-    height: auto; /* Garde la proportion */
-    object-fit: contain; /* Pas de découpe */
-    border: none; /* Supprime tout effet de cercle */
-}
-
-/* Texte normal (noir) par défaut */
-.text-gradient {
-    color: #21013b;
-    transition: all 3s ease;
 }
 
 /* Hover : contour et texte en dégradé */
