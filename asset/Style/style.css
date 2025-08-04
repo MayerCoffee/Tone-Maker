@@ -151,23 +151,70 @@ header {
     }
 }
 
-.carousel-container {
-    height: 100vh; /* ou selon ta navbar */
-    overflow: hidden;
-    position: relative;
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: #23da9d; /* ✅ Couleur de secours visible */
+  background: linear-gradient(to right, #23da9d, #36daff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: initial; /* ❌ Ne rend pas le texte transparent */
+  background-clip: text;
 }
 
-.carousel-track {
-    display: flex;
-    flex-direction: column;
-    animation: scrollUp 28s infinite;
+.cta-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem; /* 👈 Ajuste ici pour coller au texte */
 }
 
-.img-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.cta-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px; /* 👈 moins haut et large */
+  font-size: 1.3rem; /* 👈 un peu plus petit */
+  font-weight: 700;
+  color: white;
+  background-color: #5f8377;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-image: 
+    linear-gradient(#5f8377, #5f8377),
+    linear-gradient(to right, #23da9d, #3d0144);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content-inner {
+  display: flex;
+  flex-direction: column; /* 👈 empile verticalement */
+  align-items: center;
+  gap: 1.5rem; /* 👈 espace entre texte et bouton */
+}
+
+
+
+.heart {
+  font-size: 2rem;
+}
+
+
 
 /* CTA */
 .btn-contact {
