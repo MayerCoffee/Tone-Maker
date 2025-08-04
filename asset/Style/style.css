@@ -214,6 +214,24 @@ header {
   font-size: 2rem;
 }
 
+.main-content {
+  position: relative;
+  z-index: 1; /* ✅ au-dessus du carrousel */
+  padding-top: 100vh; /* ⬅️ pour que ça commence après le carrousel plein écran */
+  background-color: white; /* ou autre selon ta maquette */
+}
+
+/* Exemple pour les sections à venir */
+.logos, .custom {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.logos h2, .custom h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
 
 
 /* CTA */
