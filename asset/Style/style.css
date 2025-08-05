@@ -47,6 +47,65 @@ header {
     height: 70px;
 }
 
+/* 🔹 Style du menu burger (caché par défaut) */
+.burger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+}
+
+/* 🔽 RESPONSIVE mobile */
+@media (max-width: 480px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 10px 16px;
+    align-items: center;
+    position: relative;
+  }
+
+  /* ✅ Affiche le menu burger */
+  .burger {
+    display: block;
+  }
+
+  /* ❌ Cache les boutons du centre */
+  .nav-center {
+    display: none;
+  }
+
+  /* ✅ Centre le logo visuellement */
+  .nav-left {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-left img {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
+
+  .nav-left .value {
+    font-size: 14px;
+  }
+
+  /* ✅ Droite réduite en taille */
+  .nav-right {
+    gap: 8px;
+  }
+
+  .nav-right .value {
+    padding: 6px;
+    min-width: unset;
+    font-size: 14px;
+  }
+}
+
+
 /* Style boutons */
 .value {
     background-color: transparent;
@@ -217,16 +276,22 @@ header {
 .main-content {
   position: relative;
   z-index: 1;
-  padding-top: 5vh; /* ⬅️ Ajuste ici pour remonter la section logos */
+  padding-top: 0,3vh; /* ⬅️ Ajuste ici pour remonter la section logos */
   background-color: white;
+  
 }
 
 
 /* Exemple pour les sections à venir */
-.logos, .custom {
-  padding: 80px 40px;
-  text-align: center;
+.logos {
+  display: flex;           /* 🔥 Important */
+  justify-content: left; /* Centrage horizontal */
+  gap: 42px;               /* 🔥 Espacement horizontal entre les logos */
+  padding: 40px 40px;
+  text-align: left;
+  flex-wrap: wrap;         /* ✅ Au cas où ça déborde en responsive */
 }
+
 
 .logos h2, .custom h2 {
   font-size: 2rem;
