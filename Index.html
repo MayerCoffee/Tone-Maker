@@ -50,6 +50,54 @@
                     />
                 </div>
             </div>
+            <!-- 🔽 Menu mobile slide (masqué par défaut) -->
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-content">
+                    <div class="logo-section">
+                        <span class="logo-name"
+                            ><em>Tone</em> <strong>Maker</strong></span
+                        >
+                        <img src="asset/Logo/logo_tone_maker.png" alt="Logo" />
+                    </div>
+
+                    <div class="user-placeholder">Invité</div>
+
+                    <nav class="mobile-nav-links">
+                        <a href="#"
+                            ><img src="asset/icon/user regular.png" alt="" /> Mon
+                            espace</a
+                        >
+                        <a href="#"
+                            ><img src="asset/icon/shop.png" alt="" /> Magasin et
+                            partenaires</a
+                        >
+                        <a href="#"
+                            ><img src="asset/icon/box.png" alt="" /> Tout les
+                            produits</a
+                        >
+                        <a href="#"
+                            ><img src="asset/icon/edit.png" alt="" />
+                            Customisation</a
+                        >
+                        <a href="#"
+                            ><img src="asset/icon/group.png" alt="" />
+                            Communauté</a
+                        >
+                    </nav>
+
+                    <button class="cta-join">
+                        Rejoignez notre communauté !
+                    </button>
+
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Contact</a>
+                        <p>Copyright 2025 Company Name.</p>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <!-- Section du carrousel en arrière-plan -->
@@ -133,5 +181,19 @@
                 <!-- ... -->
             </section>
         </main>
+        <script>
+            const burger = document.querySelector(".burger");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            burger.addEventListener("click", () => {
+                mobileMenu.style.display = "block";
+            });
+
+            mobileMenu.addEventListener("click", (e) => {
+                if (e.target === mobileMenu) {
+                    mobileMenu.style.display = "none";
+                }
+            });
+        </script>
     </body>
 </html>
