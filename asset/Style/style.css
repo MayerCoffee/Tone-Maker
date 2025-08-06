@@ -16,26 +16,26 @@ header {
     gap: 20px;
 }
 
+/* ✅ Style de la navbar principale */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    width: 100%;
-    gap: 60px;
     padding: 12px 20px;
-}
-.navbar {
+    width: 100%;
     position: fixed;
-    z-index: 10; /
+    z-index: 10;
 }
-/* Logo image */
+
+/* ✅ Bloc logo */
 .nav-left img {
     width: 35px;
     height: 35px;
     border-radius: 50%;
     padding: 12px 20px;
 }
+
+/* ✅ Style des 3 blocs (gauche, centre, droite) */
 .input {
     display: flex;
     align-items: center;
@@ -47,64 +47,73 @@ header {
     height: 70px;
 }
 
-/* 🔹 Style du menu burger (caché par défaut) */
+/* 🔹 Menu burger (invisible par défaut) */
 .burger {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: black;
-}
-
-/* 🔽 RESPONSIVE mobile */
-@media (max-width: 480px) {
-  .navbar {
-    justify-content: space-between;
-    padding: 10px 16px;
-    align-items: center;
-    position: relative;
-  }
-
-  /* ✅ Affiche le menu burger */
-  .burger {
-    display: block;
-  }
-
-  /* ❌ Cache les boutons du centre */
-  .nav-center {
     display: none;
-  }
-
-  /* ✅ Centre le logo visuellement */
-  .nav-left {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .nav-left img {
-    width: 30px;
-    height: 30px;
-    padding: 0;
-  }
-
-  .nav-left .value {
-    font-size: 14px;
-  }
-
-  /* ✅ Droite réduite en taille */
-  .nav-right {
-    gap: 8px;
-  }
-
-  .nav-right .value {
-    padding: 6px;
-    min-width: unset;
-    font-size: 14px;
-  }
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
 }
 
+.icon-mobile-only {
+    display: none;
+}
+
+@media (max-width: 1472px) {
+    .navbar {
+        justify-content: space-between;
+        padding: 10px 16px;
+        align-items: center;
+        position: relative;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .nav-center {
+        display: none !important;
+    }
+
+    .nav-left {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .nav-left img {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+    }
+
+    .nav-left .value {
+        font-size: 14px;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+
+    .nav-right .value {
+        display: none;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    .icon-mobile-only {
+        display: inline-block;
+    }
+}
 
 /* Style boutons */
 .value {
@@ -211,94 +220,86 @@ header {
 }
 
 .content {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
-  color: #23da9d; /* ✅ Couleur de secours visible */
-  background: linear-gradient(to right, #23da9d, #36daff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: initial; /* ❌ Ne rend pas le texte transparent */
-  background-clip: text;
+    color: #23da9d; /* ✅ Couleur de secours visible */
+    background: linear-gradient(to right, #23da9d, #36daff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: initial; /* ❌ Ne rend pas le texte transparent */
+    background-clip: text;
 }
 
 .cta-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem; /* 👈 Ajuste ici pour coller au texte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem; /* 👈 Ajuste ici pour coller au texte */
 }
 
 .cta-button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 28px; /* 👈 moins haut et large */
-  font-size: 1.3rem; /* 👈 un peu plus petit */
-  font-weight: 700;
-  color: white;
-  background-color: #5f8377;
-  border-radius: 999px;
-  border: 2px solid transparent;
-  background-image: 
-    linear-gradient(#5f8377, #5f8377),
-    linear-gradient(to right, #23da9d, #3d0144);
-  background-origin: padding-box, border-box;
-  background-clip: padding-box, border-box;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px; /* 👈 moins haut et large */
+    font-size: 1.3rem; /* 👈 un peu plus petit */
+    font-weight: 700;
+    color: white;
+    background-color: #5f8377;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-image: linear-gradient(#5f8377, #5f8377),
+        linear-gradient(to right, #23da9d, #3d0144);
+    background-origin: padding-box, border-box;
+    background-clip: padding-box, border-box;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-
 .content {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .content-inner {
-  display: flex;
-  flex-direction: column; /* 👈 empile verticalement */
-  align-items: center;
-  gap: 1.5rem; /* 👈 espace entre texte et bouton */
+    display: flex;
+    flex-direction: column; /* 👈 empile verticalement */
+    align-items: center;
+    gap: 1.5rem; /* 👈 espace entre texte et bouton */
 }
 
-
-
 .heart {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 .main-content {
-  position: relative;
-  z-index: 1;
-  padding-top: 0,3vh; /* ⬅️ Ajuste ici pour remonter la section logos */
-  background-color: white;
-  
+    position: relative;
+    z-index: 1;
+    padding-top: 0, 3vh; /* ⬅️ Ajuste ici pour remonter la section logos */
+    background-color: white;
 }
-
 
 /* Exemple pour les sections à venir */
 .logos {
-  display: flex;           /* 🔥 Important */
-  justify-content: left; /* Centrage horizontal */
-  gap: 42px;               /* 🔥 Espacement horizontal entre les logos */
-  padding: 40px 40px;
-  text-align: left;
-  flex-wrap: wrap;         /* ✅ Au cas où ça déborde en responsive */
+    display: flex; /* 🔥 Important */
+    justify-content: left; /* Centrage horizontal */
+    gap: 42px; /* 🔥 Espacement horizontal entre les logos */
+    padding: 40px 40px;
+    text-align: left;
+    flex-wrap: wrap; /* ✅ Au cas où ça déborde en responsive */
 }
 
-
-.logos h2, .custom h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+.logos h2,
+.custom h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
-
-
 
 /* CTA */
 .btn-contact {

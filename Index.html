@@ -13,17 +13,17 @@
     <body>
         <header>
             <div class="navbar">
-                <!-- 🔽 Menu burger (affiché uniquement en mobile) -->
+                <!-- 🔽 Menu burger (mobile uniquement) -->
                 <button class="burger" aria-label="Menu mobile">&#9776;</button>
 
                 <!-- 🔽 Logo centré -->
                 <div class="input nav-left">
                     <img src="asset/Logo/logo_tone_maker.png" alt="Logo" />
-                    <span class="value">Tone Maker</span>
+                    <span class="value desktop-only">Tone Maker</span>
                 </div>
 
-                <!-- 🔽 Centre navigation (visible en desktop uniquement) -->
-                <div class="input nav-center">
+                <!-- 🔽 Centre navigation (desktop uniquement) -->
+                <div class="input nav-center desktop-only">
                     <button class="value">Magasin et partenaires</button>
                     <button class="value">Tout les produits</button>
                     <button class="value">Customisation</button>
@@ -31,13 +31,27 @@
                     <button class="value">Mon espace</button>
                 </div>
 
-                <!-- 🔽 Droite (profil + panier) -->
+                <!-- 🔽 Droite -->
                 <div class="input nav-right">
-                    <button class="value">Profil</button>
-                    <button class="value">Mes commandes</button>
+                    <!-- ✅ Desktop uniquement -->
+                    <button class="value desktop-only">Profil</button>
+                    <button class="value desktop-only">Mes commandes</button>
+
+                    <!-- ✅ Mobile uniquement -->
+                    <img
+                        class="icon-mobile-only"
+                        src="asset/icon/user.png"
+                        alt="Profil"
+                    />
+                    <img
+                        class="icon-mobile-only"
+                        src="asset/icon/cart.png"
+                        alt="Panier"
+                    />
                 </div>
             </div>
         </header>
+
         <!-- Section du carrousel en arrière-plan -->
         <section class="carousel-background">
             <div class="carousel">
