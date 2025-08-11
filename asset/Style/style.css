@@ -489,6 +489,7 @@ header {
 }
 
 .custom {
+    display: flex; /* ← nécessaire pour align-items / justify-content */
     align-items: center;
     justify-content: center;
 }
