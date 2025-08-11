@@ -158,9 +158,7 @@
             <div class="create-guitar-container">
                 <button class="create-guitar-button">
                     <span class="text">Créer ma guitare</span>
-                    <img 
-                    src="asset/icon/Arrow Head.png"
-                    >
+                    <img src="asset/icon/Arrow Head.png" />
                 </button>
             </div>
         </section>
@@ -197,11 +195,291 @@
                 />
             </section>
 
-            <section class="custom">
-                <h2>TEST</h2>
-                <!-- ... -->
+            <!-- ================== START — CARROUSEL PRODUITS (NAMESPACE: tmx-) ================== -->
+            <section
+                class="tmx-showcase"
+                aria-label="Carrousel produits Tone Maker"
+            >
+                <!-- Radios qui pilotent la navbar + le slide (aucun conflit grâce au name/id uniques) -->
+                <input
+                    type="radio"
+                    name="tmx-slide"
+                    id="tmx-tab-bodies"
+                    checked
+                />
+                <input type="radio" name="tmx-slide" id="tmx-tab-pickups" />
+                <input type="radio" name="tmx-slide" id="tmx-tab-kits" />
+
+                <!-- NAVBAR -->
+                <nav class="tmx-navbar" aria-label="Sections">
+                    <div class="tmx-navbar-track">
+                        <span class="tmx-highlight" aria-hidden="true"></span>
+
+                        <!-- /* ICON NAVBAR : Corps de la guitare — remplace le src */ -->
+                        <label class="tmx-tab" for="tmx-tab-bodies">
+                            <img
+                                class="tmx-tab-icon"
+                                src="asset/icon/nav/icon-body.svg"
+                                alt=""
+                            />
+                            <span>Corps de la guitare</span>
+                        </label>
+
+                        <!-- /* ICON NAVBAR : Micros — remplace le src */ -->
+                        <label class="tmx-tab" for="tmx-tab-pickups">
+                            <img
+                                class="tmx-tab-icon"
+                                src="asset/icon/nav/icon-pickup.svg"
+                                alt=""
+                            />
+                            <span>Micros</span>
+                        </label>
+
+                        <!-- /* ICON NAVBAR : Kits DIY — remplace le src */ -->
+                        <label class="tmx-tab" for="tmx-tab-kits">
+                            <img
+                                class="tmx-tab-icon"
+                                src="asset/icon/nav/icon-tools.svg"
+                                alt=""
+                            />
+                            <span>Kits DIY</span>
+                        </label>
+                    </div>
+                </nav>
+
+                <!-- CARROUSEL -->
+                <div class="tmx-carousel" aria-live="polite">
+                    <div class="tmx-track">
+                        <!-- PANEL 1 — CORPS -->
+                        <section class="tmx-panel tmx-gradient">
+                            <header class="tmx-panel-head">
+                                <!-- /* ICON TITRE : Corps de la guitare — remplace le src */ -->
+                                <img
+                                    class="tmx-title-icon"
+                                    src="asset/icon/section/icon-body.svg"
+                                    alt=""
+                                />
+                                <h2>Corps de la guitare</h2>
+                            </header>
+
+                            <ul class="tmx-items">
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Acajou — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/corps/acajou.jpg"
+                                        alt="Acajou"
+                                    />
+                                    <h3>Acajou</h3>
+                                    <p class="tmx-sub">son chaud</p>
+                                    <span class="tmx-price">+ 0 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Ébène — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/corps/ebene.jpg"
+                                        alt="Ébène"
+                                    />
+                                    <h3>Ébène</h3>
+                                    <p class="tmx-sub">son grave</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Frêne — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/corps/frene.jpg"
+                                        alt="Frêne"
+                                    />
+                                    <h3>Frêne</h3>
+                                    <p class="tmx-sub">son équilibré</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Érable — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/corps/erable.jpg"
+                                        alt="Érable"
+                                    />
+                                    <h3>Érable</h3>
+                                    <p class="tmx-sub">son brillant</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Épicéa — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/corps/epicea.jpg"
+                                        alt="Épicéa"
+                                    />
+                                    <h3>Épicéa</h3>
+                                    <p class="tmx-sub">son froid</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- PANEL 2 — MICROS -->
+                        <section class="tmx-panel tmx-gradient">
+                            <header class="tmx-panel-head">
+                                <!-- /* ICON TITRE : Micros — remplace le src */ -->
+                                <img
+                                    class="tmx-title-icon"
+                                    src="asset/icon/section/icon-pickup.svg"
+                                    alt=""
+                                />
+                                <h2>Micros</h2>
+                            </header>
+
+                            <ul class="tmx-items">
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Single-coil — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/micros/single-coil.jpg"
+                                        alt="Single-coil"
+                                    />
+                                    <h3>Single-coil</h3>
+                                    <p class="tmx-sub">son vintage</p>
+                                    <span class="tmx-price">+ 0 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Humbucker — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/micros/humbucker.jpg"
+                                        alt="Humbucker"
+                                    />
+                                    <h3>Humbucker</h3>
+                                    <p class="tmx-sub">son puissant</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : P90 — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/micros/p90.jpg"
+                                        alt="P90"
+                                    />
+                                    <h3>P90</h3>
+                                    <p class="tmx-sub">son unique</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Piezo — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/micros/piezo.jpg"
+                                        alt="Piezo"
+                                    />
+                                    <h3>Piezo</h3>
+                                    <p class="tmx-sub">son naturel</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : DiMarzio — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/micros/dimarzio.jpg"
+                                        alt="DiMarzio"
+                                    />
+                                    <h3>DiMarzio</h3>
+                                    <p class="tmx-sub">son saturé</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- PANEL 3 — KITS -->
+                        <section class="tmx-panel tmx-gradient">
+                            <header class="tmx-panel-head">
+                                <!-- /* ICON TITRE : Kits DIY — remplace le src */ -->
+                                <img
+                                    class="tmx-title-icon"
+                                    src="asset/icon/section/icon-tools.svg"
+                                    alt=""
+                                />
+                                <h2>Kits DIY</h2>
+                            </header>
+
+                            <ul class="tmx-items">
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Set Brûlant — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/kits/brulant.jpg"
+                                        alt="Set Brûlant"
+                                    />
+                                    <h3>Set Brûlant 🔥</h3>
+                                    <p class="tmx-sub">son chaud</p>
+                                    <span class="tmx-price">+ 0 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Set Vintage — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/kits/vintage.jpg"
+                                        alt="Set Vintage"
+                                    />
+                                    <h3>Set Vintage ♟️</h3>
+                                    <p class="tmx-sub">son texturé</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Set Blues — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/kits/blues.jpg"
+                                        alt="Set Blues"
+                                    />
+                                    <h3>Set Blues 🎵</h3>
+                                    <p class="tmx-sub">sons profonds</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Set Rock — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/kits/rock.jpg"
+                                        alt="Set Rock"
+                                    />
+                                    <h3>Set Rock ✨</h3>
+                                    <p class="tmx-sub">son naturel</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+
+                                <li class="tmx-card">
+                                    <!-- /* PHOTO : Set Velouté — remplace le src */ -->
+                                    <img
+                                        class="tmx-thumb"
+                                        src="asset/IMG/kits/veloute.jpg"
+                                        alt="Set Velouté"
+                                    />
+                                    <h3>Set Velouté 侘</h3>
+                                    <p class="tmx-sub">son doux rond</p>
+                                    <span class="tmx-price">+ 10 €</span>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
             </section>
+            <!-- ================== END — CARROUSEL PRODUITS (NAMESPACE: tmx-) ================== -->
         </main>
+
         <script>
             const burger = document.querySelector(".burger");
             const mobileMenu = document.getElementById("mobileMenu");
