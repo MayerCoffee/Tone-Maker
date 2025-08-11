@@ -492,6 +492,42 @@ header {
     align-items: center;
     justify-content: center;
 }
+/* ===== Intro texte (namespace: tmx-) ===== */
+.tmx-intro {
+    --tmx-head: #1e0636; /* violet foncé du titre */
+    --tmx-sub: rgba(30, 6, 54, 0.75);
+    max-width: 1100px;
+    margin: 56px auto 14px; /* espace avant la navbar tmx */
+    padding: 0 16px;
+    text-align: center;
+}
+
+.tmx-intro h1 {
+    margin: 0 0 10px;
+    color: var(--tmx-head);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    /* Taille fluide : mobile → desktop */
+    font-size: clamp(2rem, 3vw + 1.2rem, 3.2rem);
+}
+
+.tmx-intro-sub {
+    margin: 0 auto;
+    max-width: 720px;
+    color: var(--tmx-sub);
+    font-weight: 600;
+    line-height: 1.4;
+    font-size: clamp(0.95rem, 0.5vw + 0.85rem, 1.05rem);
+}
+
+/* Optionnel : un peu plus d’air sur petits écrans */
+@media (max-width: 640px) {
+    .tmx-intro {
+        margin: 40px auto 10px;
+    }
+}
+
 /* ================== NAMESPACE: tmx- ================== */
 .tmx-showcase {
     --tmx-pill: #f3f4f6;
@@ -501,8 +537,8 @@ header {
     --tmx-t: 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
 
     max-width: 1060px;
-    margin: 48px auto;
-    padding: 0 16px;
+    margin: 100px auto;
+    padding: 0 50px;
 }
 
 /* Radios cachés */
@@ -535,7 +571,6 @@ header {
     background: linear-gradient(135deg, var(--tmx-grad-a), var(--tmx-grad-b));
     border-radius: 999px;
     transition: transform var(--tmx-t);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 }
 .tmx-tab {
     display: flex;
@@ -617,9 +652,7 @@ header {
     height: 28px;
     object-fit: contain;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.35);
     padding: 6px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18) inset;
 }
 .tmx-panel h2 {
     margin: 0;
@@ -637,13 +670,8 @@ header {
     gap: 18px;
 }
 .tmx-card {
-    background: rgba(255, 255, 255, 0.14);
-    border-radius: 18px;
     padding: 16px 12px 14px;
     text-align: center;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24) inset,
-        0 8px 24px rgba(0, 0, 0, 0.08);
-    transition: transform 0.18s ease;
 }
 .tmx-card:hover {
     transform: translateY(-3px);
@@ -653,9 +681,7 @@ header {
     height: 96px;
     border-radius: 999px;
     object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.55);
     margin: 0 auto 12px;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
 }
 .tmx-card h3 {
     margin: 0 0 4px;
@@ -672,10 +698,11 @@ header {
     padding: 6px 10px;
     font-size: 0.75rem;
     font-weight: 700;
-    background: #fff;
     color: #0f172a;
-    border-radius: 999px;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.12);
+    background: transparent; /* plus de fond */
+    border: 1px solid currentColor; /* contour 1px */
+    border-radius: 3px; /* angles 1px */
+    box-shadow: none; /* pas d’ombre */
 }
 
 /* ===== Responsive ===== */
