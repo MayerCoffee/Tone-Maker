@@ -492,12 +492,47 @@ header {
     align-items: center;
     justify-content: center;
 }
+
+/* ===== Bloc titre modèle (même typo que l’intro précédente) ===== */
+.tmx-model-intro {
+    --tmx-head: #1e0636;
+    --tmx-sub: rgba(30, 6, 54, 0.75);
+    max-width: 1100px;
+    margin: 72px auto 18px; /* espace avant ce bloc */
+    padding: 0 16px;
+    text-align: center;
+}
+
+.tmx-model-intro h1 {
+    margin: 0 0 10px;
+    color: var(--tmx-head);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    font-size: clamp(2rem, 3vw + 1.2rem, 3.2rem);
+}
+
+.tmx-model-sub {
+    margin: 0 auto;
+    max-width: 720px;
+    color: var(--tmx-sub);
+    font-weight: 600;
+    line-height: 1.4;
+    font-size: clamp(0.95rem, 0.5vw + 0.85rem, 1.05rem);
+}
+
+@media (max-width: 640px) {
+    .tmx-model-intro {
+        margin: 40px auto 12px;
+    }
+}
+
 /* ===== Intro texte (namespace: tmx-) ===== */
 .tmx-intro {
     --tmx-head: #1e0636; /* violet foncé du titre */
     --tmx-sub: rgba(30, 6, 54, 0.75);
     max-width: 1100px;
-    margin: 56px auto 14px; /* espace avant la navbar tmx */
+    margin: 160px auto 14px; /* espace avant la navbar tmx */
     padding: 0 16px;
     text-align: center;
 }
@@ -549,7 +584,6 @@ header {
 
 /* ===== NAVBAR ===== */
 .tmx-navbar {
-    position: sticky;
     top: 16px;
     z-index: 3;
     margin-bottom: 18px;
@@ -727,6 +761,215 @@ header {
     }
 }
 
+/* Liste des éléments */
+#toneList {
+    margin-top: 2rem;
+}
+
+/* ===== 3 CARDS — VERSION FIDÈLE (namespace: tmx2-) ===== */
+.tmx2-cards {
+    --p1: #2b0b86; /* violet foncé (haut) */
+    --p2: #5b19c8; /* violet vif (bas)  */
+    --teal: #00e6a6;
+    --teal-dark: #002b1f;
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.72);
+
+    max-width: 1180px;
+    margin: 28px auto 56px;
+    padding: 0 16px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+.tmx2-card {
+    border-radius: 22px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, 0.18);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+    /* >>> Fix hauteur : le body grandit pour couvrir jusqu’en bas */
+    display: flex;
+    flex-direction: column;
+}
+.tmx2-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.22);
+}
+
+/* ===== MEDIA (photo en haut) ===== */
+.tmx2-media {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 1 / 1; /* ou 4/3, 16/9… */
+    overflow: hidden;
+}
+.tmx2-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Badges sur la photo */
+.tmx2-badge {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 8px 12px;
+    font-weight: 800;
+    font-size: 0.86rem;
+    line-height: 1;
+    border-radius: 9px;
+    color: #0f0a12;
+}
+.tmx2-badge-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+.tmx2-badge--orange {
+    background: #ff8f3a;
+    box-shadow: 0 8px 18px rgba(255, 143, 58, 0.4);
+}
+.tmx2-badge--green {
+    background: #6ee7c9;
+    box-shadow: 0 8px 18px rgba(110, 231, 201, 0.4);
+}
+
+.tmx2-price {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    background: #21eac1;
+    color: var(--teal-dark);
+    padding: 9px 13px;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 0.9rem;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== BODY (bloc violet) ===== */
+.tmx2-body {
+    background: linear-gradient(180deg, var(--p1) 0%, var(--p2) 100%);
+    color: var(--text);
+    padding: 28px 30px 22px;
+
+    /* >>> occupe tout l’espace restant de la carte */
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+.tmx2-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+.tmx2-title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 750;
+    letter-spacing: 0.1px;
+}
+.tmx2-count {
+    padding: 7px 12px;
+    border-radius: 9px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #cbd5ff;
+    border: 1px solid rgba(203, 213, 255, 0.35);
+    background: transparent;
+}
+
+.tmx2-sub {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-weight: 600;
+    letter-spacing: 0.1px;
+}
+
+/* Liste des features */
+.tmx2-features {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+.tmx2-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.05rem;
+    font-weight: 650;
+}
+.tmx2-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* CTA */
+.tmx2-cta {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 13px 16px;
+    border: none;
+    cursor: pointer;
+    color: #0d1b16;
+    font-weight: 900;
+    font-size: 1rem;
+    background: linear-gradient(135deg, var(--teal), #3bd5ff);
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+
+    /* >>> colle le bouton en bas du bloc violet */
+    margin-top: auto;
+}
+.tmx2-icon-btn {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+.tmx2-cta:hover {
+    transform: translateY(-1px);
+}
+.tmx2-cta:active {
+    transform: translateY(0);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1160px) {
+    .tmx2-cards {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+    }
+    .tmx2-media {
+        height: 280px;
+    }
+}
+@media (max-width: 760px) {
+    .tmx2-cards {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+    .tmx2-media {
+        height: 240px;
+    }
+}
+
 /* CTA */
 .btn-contact {
     position: absolute;
@@ -763,9 +1006,4 @@ header {
     background: none;
     color: #21013b;
     -webkit-text-fill-color: #21013b;
-}
-
-/* Liste des éléments */
-#toneList {
-    margin-top: 2rem;
 }

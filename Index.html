@@ -486,9 +486,140 @@
                 </div>
             </section>
             <!-- ================== END — CARROUSEL PRODUITS (NAMESPACE: tmx-) ================== -->
-        </main>
+            <!-- ===== Intro texte avant la navbar/slider (namespace: tmx-) ===== -->
+            <!-- ===== Titre "Choisissez votre modèle" (namespace: tmx-) ===== -->
+            <section class="tmx-model-intro" aria-labelledby="tmx-model-title">
+                <h1 id="tmx-model-title">
+                    Choisissez votre modèle pour commencer
+                </h1>
+                <p class="tmx-model-sub">
+                    Choisissez votre point de départ et personnaliser chaque
+                    détail !
+                </p>
+            </section>
+            <!-- ===== 3 CARDS — VERSION FIDÈLE (namespace: tmx2-) ===== -->
+<section class="tmx2-cards" aria-label="Modèles de guitare">
 
-        <script>
+  <!-- ========== CARD 1 : Électrique ========== -->
+  <article class="tmx2-card">
+    <figure class="tmx2-media">
+      <!-- /* PHOTO HERO — remplace le src par ta photo */ -->
+      <img class="tmx2-photo" src="asset/IMG/page_slider/Rockeur.png" alt="Concert rock">
+
+      <!-- /* BADGE GAUCHE — icône + texte 'Populaire' (icône remplaçable) */ -->
+      <span class="tmx2-badge tmx2-badge--orange">
+        <img class="tmx2-badge-icon" src="asset/icon/icon_star.png" alt="">
+        Populaire
+      </span>
+
+      <!-- /* BADGE PRIX — pill turquoise en bas à droite */ -->
+      <span class="tmx2-price">A partir de 899 €</span>
+    </figure>
+
+    <div class="tmx2-body">
+      <div class="tmx2-titlebar">
+        <h3 class="tmx2-title">Guitare Electrique</h3>
+        <span class="tmx2-count">50 + modèles</span>
+      </div>
+
+      <p class="tmx2-sub">Rock, Blues, jazz, Funk</p>
+
+      <ul class="tmx2-features">
+        <li>
+          <!-- /* ICÔNE CHECK — remplace le src */ -->
+          <img class="tmx2-icon" src="asset/icon/check-circle.png" alt="">
+          Micros personnalisable
+        </li>
+        <li>
+          <img class="tmx2-icon" src="asset/icon/check-circle.png" alt="">
+          Effets intégrés
+        </li>
+        <li>
+          <img class="tmx2-icon" src="asset/icon/check-circle.png" alt="">
+          Design moderne
+        </li>
+      </ul>
+
+      <button class="tmx2-cta">
+        <!-- /* ICÔNE GUITARE DANS LE BOUTON — remplace le src */ -->
+        <img class="tmx2-icon-btn" src="asset/icon/nimbus_guitar.png" alt="">
+        Je pars de ce modèle
+      </button>
+    </div>
+  </article>
+
+  <!-- ========== CARD 2 : Acoustique ========== -->
+  <article class="tmx2-card">
+    <figure class="tmx2-media">
+      <!-- /* PHOTO HERO — remplace le src */ -->
+      <img class="tmx2-photo" src="asset/IMG/page_slider/folk.png" alt="Guitare acoustique dans un champ">
+
+      <!-- /* BADGE GAUCHE — 'Nouveau' */ -->
+      <span class="tmx2-badge tmx2-badge--green">
+        <img class="tmx2-badge-icon" src="asset/icon/icon_star.png" alt="">
+        Nouveau
+      </span>
+
+      <!-- /* BADGE PRIX */ -->
+      <span class="tmx2-price">A partir de 649 €</span>
+    </figure>
+
+    <div class="tmx2-body">
+      <div class="tmx2-titlebar">
+        <h3 class="tmx2-title">Guitare Acoustique</h3>
+        <span class="tmx2-count">30 + modèles</span>
+      </div>
+
+      <p class="tmx2-sub">Folk, Country, classique</p>
+
+      <ul class="tmx2-features">
+        <li><img class="tmx2-icon" src="asset/icon/check-circle.png" alt="">Bois Premium</li>
+        <li><img class="tmx2-icon" src="asset/icon/check-circle.png" alt="">Son naturel</li>
+        <li><img class="tmx2-icon" src="asset/icon/check-circle.png" alt="">Confort de jeu</li>
+      </ul>
+
+      <button class="tmx2-cta">
+        <img class="tmx2-icon-btn" src="asset/icon/nimbus_guitar.png" alt="">
+        Je pars de ce modèle
+      </button>
+    </div>
+  </article>
+
+  <!-- ========== CARD 3 : Basse ========== -->
+  <article class="tmx2-card">
+    <figure class="tmx2-media">
+      <!-- /* PHOTO HERO — remplace le src */ -->
+      <img class="tmx2-photo" src="asset/IMG/page_slider/Rythmique.png" alt="Guitariste sur scène assis">
+
+      <!-- (pas de badge gauche sur cette carte) -->
+
+      <!-- /* BADGE PRIX */ -->
+      <span class="tmx2-price">A partir de 749 €</span>
+    </figure>
+
+    <div class="tmx2-body">
+      <div class="tmx2-titlebar">
+        <h3 class="tmx2-title">Guitare Basse</h3>
+        <span class="tmx2-count">20 + modèles</span>
+      </div>
+
+      <p class="tmx2-sub">4, 5, 6 cordes disponibles</p>
+
+      <ul class="tmx2-features">
+        <li><img class="tmx2-icon" src="asset/icon/check-circle.png" alt="">Graves profonds</li>
+        <li><img class="tmx2-icon" src="asset/icon/check-circle.png" alt="">Electronique intégrée</li>
+        <li><img class="tmx2-icon" src="asset/icon/check-circle.png" alt="">Ergonomie améliorée</li>
+      </ul>
+
+      <button class="tmx2-cta">
+        <img class="tmx2-icon-btn" src="asset/icon/nimbus_guitar.png" alt="">
+        Je pars de ce modèle
+      </button>
+    </div>
+  </article>
+
+</section>
+ <script>
             const burger = document.querySelector(".burger");
             const mobileMenu = document.getElementById("mobileMenu");
 
