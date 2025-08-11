@@ -777,7 +777,7 @@ header {
     --muted: rgba(255, 255, 255, 0.72);
 
     max-width: 1180px;
-    margin: 28px auto 56px;
+    margin: 86px auto 56px;
     padding: 0 16px;
 
     display: grid;
@@ -971,9 +971,18 @@ header {
     }
 }
 
-/* CTA */
+/* Conteneur qui centre */
+.cta-center {
+    display: flex;
+    justify-content: center; /* centre horizontal */
+    align-items: center; /* optionnel: centre vertical */
+    width: 100%;
+    padding: 24px 0; /* ou min-height:200px si tu veux un vrai centrage vertical */
+}
+
+/* Ta règle, sans position absolute pour permettre le centrage */
 .btn-contact {
-    position: absolute;
+    /* position: absolute;  <-- on enlève */
     padding: 14px 32px;
     font-size: 0.9rem;
     cursor: pointer;
@@ -984,12 +993,17 @@ header {
     transition: background 0.3s ease;
 }
 
+/* Couleur par défaut du texte (sinon il ne prend la couleur qu'au hover) */
+.text-gradient {
+    color: #21013b;
+    font-weight: 600;
+}
+
 /* Hover : contour et texte en dégradé */
 .btn-contact:hover {
     background: linear-gradient(white, white) padding-box,
         linear-gradient(to right, #23da9d, #36daff) border-box;
 }
-
 .btn-contact:hover .text-gradient {
     background: linear-gradient(to right, #23da9d, #36daff);
     -webkit-background-clip: text;
@@ -998,11 +1012,10 @@ header {
     color: transparent;
 }
 
-/* ✅ Active (clic) : fond entier en dégradé + texte #21013B */
+/* Active (clic) : fond entier en dégradé + texte #21013B */
 .btn-contact:active {
     background: linear-gradient(to right, #23da9d, #36daff);
 }
-
 .btn-contact:active .text-gradient {
     background: none;
     color: #21013b;
