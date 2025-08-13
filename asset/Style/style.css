@@ -1480,51 +1480,7 @@ body {
     );
 }
 
-/* Bloc texte centré */
-.hero-content {
-    position: absolute;
-    inset: 0;
-    z-index: 2; /* au-dessus de l’overlay */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 16px; /* marge latérale en mobile */
-    color: #fff;
-}
-
-/* Titre + sous-titre responsives */
-.hero-title {
-    margin: 0 0 12px;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    font-size: clamp(28px, 4vw + 10px, 64px);
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
-}
-
-.hero-subtitle {
-    margin: 0;
-    font-weight: 500;
-    line-height: 1.35;
-    font-size: clamp(15px, 1.2vw + 10px, 22px);
-    opacity: 0.95;
-    max-width: 980px; /* largeur de ligne confortable */
-}
-/* ajoute sous tes règles existantes */
-.hero-content {
-    transform: translateY(-25vh); /* avant: -6vh */
-}
-@media (max-width: 640px) {
-    .hero-content {
-        transform: translateY(-4vh); /* avant: -3vh */
-    }
-}
-/* ---------- Placement dans la hero ---------- */
-.hero {
-    position: relative;
-}
-/* S'assurer que le contenu du hero passe DEVANT le voile */
+/* --- HERO: texte centré et décalé proprement --- */
 .hero {
     position: relative;
 }
@@ -1534,10 +1490,60 @@ body {
 .hero > * {
     position: relative;
     z-index: 1;
-} /* titre, sous-titre, etc. */
-.hero-inner {
+} /* contenu au-dessus */
+
+.hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-} /* centre le bloc inséré */
+    padding: 0 16px;
+    color: #fff;
+
+    /* >>> règle UNIQUE de décalage vertical <<< */
+    transform: translateY(var(--hero-shift, -20vh));
+}
+
+/* Ajuste ici selon les tailles d'écran */
+@media (min-width: 1280px) {
+    :root {
+        --hero-shift: -22vh;
+    } /* desktop */
+}
+@media (max-width: 1024px) {
+    :root {
+        --hero-shift: -14vh;
+    } /* tablette */
+}
+@media (max-width: 640px) {
+    :root {
+        --hero-shift: -6vh;
+    } /* mobile */
+}
+
+/* Titres (tu peux garder les tiens) */
+.hero-title {
+    margin: 0 0 12px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: clamp(28px, 4vw + 10px, 64px);
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+.hero-subtitle {
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.35;
+    font-size: clamp(15px, 1.2vw + 10px, 22px);
+    opacity: 0.95;
+    max-width: 980px;
+}
+.hero {
+    --hero-shift: -25vh;
+} /* mets -28vh, -36vh, etc. selon la hauteur voulue */
 
 /* Bloc MOTM centré sous le sous-titre */
 .gfc-hero-motm {
@@ -1619,4 +1625,161 @@ body {
 }
 .hero-inner {
     text-align: center;
+}
+/* ===== Titres ===== */
+.help-intro {
+    max-width: 1280px;
+    margin: 100px auto 24px;
+    padding: 0 16px;
+    text-align: center;
+    background: #fff;
+}
+.help-title {
+    margin: 0;
+    font-weight: 800;
+    font-size: clamp(28px, 6vw, 64px);
+    line-height: 1.1;
+    letter-spacing: 0.2px;
+    color: #23003a;
+}
+.help-subtitle {
+    margin: 12px 0 0;
+    font-weight: 500;
+    line-height: 1.4;
+    font-size: clamp(14px, 2.1vw, 22px);
+    color: #111;
+}
+
+/* ===== Cards — full-bleed, jamais collées aux bords ===== */
+:root {
+    --help-gutter: clamp(56px, 7vw, 96px); /* <<< garde côté plus large */
+    --help-gap: clamp(24px, 2.5vw, 36px);
+    --help-colmin: 320px; /* largeur mini d'une card (wrap + tôt) */
+}
+
+.help-cards {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+
+    padding-left: var(--help-gutter);
+    padding-right: var(--help-gutter);
+    padding-bottom: 84px; /* espace en bas plus généreux */
+    margin-top: 100px;
+    margin-bottom: 80px;
+
+    background: #fff;
+    position: relative;
+    overflow-x: clip; /* pas de micro-scroll horizontal */
+    box-sizing: border-box;
+}
+
+.help-grid {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    gap: var(--help-gap);
+
+    /* Remplit la ligne mais repasse à la ligne avant de toucher le bord */
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, var(--help-colmin)), 1fr)
+    );
+}
+
+/* ===== Style d'une card ===== */
+.hc-card {
+    min-width: 0;
+    background: #fff;
+    text-align: center;
+    border: 1.5px solid rgba(173, 119, 255, 0.55);
+    box-shadow: 0 0 0 1px rgba(122, 51, 199, 0.12) inset;
+    border-radius: 22px;
+    padding: 34px 24px 32px;
+}
+.hc-icon {
+    width: 92px;
+    height: 92px;
+    border-radius: 999px;
+    margin: 0 auto 22px;
+    display: grid;
+    place-items: center;
+}
+.hc-ico {
+    width: 28px;
+    height: 28px;
+    display: block;
+    object-fit: contain;
+}
+
+/* Dégradés */
+.hc-icon.is-guide {
+    background: radial-gradient(120% 120% at 30% 20%, #19f0c2 0%, #22d7ff 100%);
+}
+.hc-icon.is-custom {
+    background: radial-gradient(120% 120% at 30% 20%, #ff00d3 0%, #ffbf40 100%);
+}
+.hc-icon.is-vocab {
+    background: radial-gradient(120% 120% at 30% 20%, #5a19ff 0%, #ff39cd 100%);
+}
+.hc-icon.is-faq {
+    background: radial-gradient(120% 120% at 30% 20%, #1a33ff 0%, #22d7ff 100%);
+}
+
+.hc-title {
+    margin: 0 0 8px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.25;
+    color: #0f0a1a;
+}
+.hc-subtitle {
+    margin: 0;
+    font-size: 18px;
+    color: #a0a0a8;
+    font-weight: 500;
+}
+
+/* Hover doux */
+.hc-card {
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+.hc-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(122, 51, 199, 0.85);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgba(122, 51, 199, 0.25) inset;
+}
+.hc-icon {
+    transition: box-shadow 0.18s ease, filter 0.18s ease, transform 0.18s ease;
+}
+.hc-card:hover .hc-icon {
+    box-shadow: 0 0 0 6px rgba(122, 51, 199, 0.08);
+    filter: saturate(1.06);
+}
+.hc-ico {
+    transition: transform 0.18s ease;
+}
+.hc-card:hover .hc-ico {
+    transform: scale(1.06);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 620px) {
+    :root {
+        --help-gutter: 24px;
+        --help-colmin: 260px;
+    }
+    .hc-card {
+        padding: 28px 20px;
+    }
+    .hc-title {
+        font-size: 24px;
+    }
+    .hc-subtitle {
+        font-size: 16px;
+    }
 }
