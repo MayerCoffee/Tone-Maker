@@ -1027,64 +1027,143 @@ header {
    body des cartes transparent (bord violet conservé).
 ==================================*/
 /* ===== HERO TITRE + SOUS-TITRE (dans .gfc) ===== */
-.gfc #gfc-title,
-.gfc .tmx-model-sub {
-    /* largeur de ligne contrôlée pour un retour à la ligne propre */
-    max-width: 920px; /* ajuste si besoin pour coller au pixel près */
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center; /* centrage du texte */
+/* ====== RESET DE BASE ====== */
+html,
+body {
+    margin: 0;
+    overflow-x: hidden;
 }
 
-/* Titre */
+/* ====== LAYOUT GLOBAL ====== */
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+/* On fige l'ordre partout : cards au-dessus, hero dessous, CTA encore dessous */
+.cards {
+    order: 0;
+}
+.hero {
+    order: 1;
+}
+.cta-center {
+    order: 2;
+}
+
+/* ====== HERO PLEINE LARGEUR (toujours après les cartes) ====== */
+.hero {
+    /* plein écran en largeur, même dans un container centré */
+    width: 100vw; /* fallback */
+    width: 100dvw; /* unités viewport modernes */
+    margin-left: calc(50% - 50vw);
+    margin-left: calc(50% - 50dvw);
+    margin-right: calc(50% - 50vw);
+    margin-right: calc(50% - 50dvw);
+    overflow: hidden;
+
+    /* espace au-dessus de l'image */
+    margin-top: clamp(16px, 4vw, 64px);
+
+    /* hauteur responsive de base */
+    height: 38svh;
+}
+.hero img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Hauteurs adaptatives */
+@media (min-width: 480px) {
+    .hero {
+        height: 45svh;
+    }
+}
+@media (min-width: 768px) {
+    .hero {
+        height: 60svh;
+    }
+}
+@media (min-width: 1200px) {
+    .hero {
+        height: 72svh;
+        max-height: 820px;
+    }
+}
+
+/* ====== CTA sous l'image ====== */
+.cta-center {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0 56px;
+}
+.btn-contact {
+    padding: 10px 22px;
+    border: 2px solid #b06ac8;
+    border-radius: 999px;
+    background: #fff;
+    font: 500 14px/1.2 system-ui, sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(90deg, #a4508b, #5f0a87);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ====== STYLES DES CARTES (GFC) ====== */
+.gfc #gfc-title,
+.gfc .tmx-model-sub {
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 .gfc #gfc-title {
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.08;
     font-size: clamp(2rem, 3vw + 1.2rem, 3.2rem);
-    color: #1b0337; /* violet foncé du visuel */
+    color: #1b0337;
     margin-top: 24px;
-    margin-bottom: 10px; /* espace avec le sous-titre */
+    margin-bottom: 10px;
 }
-
-/* Sous-titre */
 .gfc .tmx-model-sub {
     font-size: 18px;
-    font-weight: 600; /* semi-bold comme sur la capture */
+    font-weight: 600;
     line-height: 1.35;
-    color: rgba(27, 3, 55, 0.75); /* même teinte un peu plus claire */
+    color: rgba(27, 3, 55, 0.75);
     margin-top: 0;
     margin-bottom: 56px;
 }
 
 .gfc {
-    --w: 1256px; /* largeur globale du composant */
-    --gap: 24px; /* espacement entre cartes */
-    --card-w: 296px; /* largeur d'une carte */
-    --card-h: 300px; /* hauteur totale d'une carte */
-    --radius-xl: 16px; /* rayon des coins des cartes */
-    --radius-chip: 10px; /* rayon des filtres (chips) */
-    --stroke: #6433a6; /* contour violet des cartes */
-    --chip-border: #cfcfcf; /* contour des chips inactifs */
+    --w: 1256px;
+    --gap: 24px;
+    --card-w: 296px;
+    --card-h: 300px;
+    --radius-xl: 16px;
+    --radius-chip: 10px;
+    --stroke: #6433a6;
+    --chip-border: #cfcfcf;
     --text: #eaeaea;
     --muted: #9b9b9b;
-    --pill-bg: #19f0c2; /* pastille catégorie turquoise */
+    --pill-bg: #19f0c2;
     --grad-on: linear-gradient(90deg, #19f0c2 0%, #22d7ff 100%);
     --shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
     --font: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif;
-    margin: 86px auto 56px;
-}
-
-.gfc {
     width: var(--w);
     margin: 0 auto;
     font-family: var(--font);
     color: var(--text);
-    background: transparent; /* composant transparent */
+    background: transparent;
 }
 
-/* ---------- Filtres (sticky, centrés, même largeur que la grille) ---------- */
+/* Filtres (sticky, centrés) */
 .gfc .gfc-filters-wrap {
     position: sticky;
     top: 0;
@@ -1092,24 +1171,20 @@ header {
     background: transparent;
     padding: 8px 0 14px;
     display: flex;
-    justify-content: center; /* centre le groupe */
+    justify-content: center;
 }
 .gfc .gfc-filters {
     display: inline-flex;
     gap: 10px;
     align-items: center;
-    width: calc(
-        4 * var(--card-w) + 3 * var(--gap)
-    ); /* = largeur exacte de la grille */
+    width: calc(4 * var(--card-w) + 3 * var(--gap));
     margin: 0 auto;
-    justify-content: center; /* groupe centré */
+    justify-content: center;
 }
-
 .gfc .gfc-radio {
     position: absolute;
     left: -9999px;
 }
-
 .gfc .gfc-chip {
     display: inline-flex;
     align-items: center;
@@ -1141,7 +1216,7 @@ header {
     border-color: transparent;
 }
 
-/* ---------- Viewport + Slides (NE PAS TOUCHER transitions) ---------- */
+/* Viewport + Slides */
 .gfc .gfc-viewport {
     position: relative;
     width: 100%;
@@ -1164,28 +1239,38 @@ header {
     transform: translateX(0);
 }
 
-/* ---------- Grille cartes (4 colonnes) ---------- */
+/* Grille cartes (4 colonnes) */
 .gfc .gfc-grid {
     display: grid;
     grid-template-columns: repeat(4, var(--card-w));
     gap: var(--gap);
 }
 
-/* ---------- Carte ---------- */
+/* Carte */
 .gfc .gfc-card {
     width: var(--card-w);
-    border: 2px solid var(--stroke); /* contour violet conservé */
+    border: 2px solid var(--stroke);
     border-radius: calc(var(--radius-xl) + 2px);
     overflow: hidden;
     box-shadow: var(--shadow);
-    background: transparent; /* > pour que la partie basse soit vraiment transparente */
+    background: transparent;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    transform-origin: center;
+    will-change: transform;
+}
+@media (hover: hover) and (pointer: fine) {
+    .gfc .gfc-card:hover,
+    .gfc .gfc-card:focus-within {
+        transform: scale(1.02);
+        z-index: 2;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
 }
 .gfc .gfc-media {
     position: relative;
     height: 190px;
     overflow: hidden;
-    background: #222; /* ne se voit pas avec la photo */
-    border-bottom: none; /* pas de bande de séparation grise */
+    background: #222;
 }
 .gfc .gfc-media img {
     width: 100%;
@@ -1193,7 +1278,6 @@ header {
     object-fit: cover;
     display: block;
 }
-
 .gfc .gfc-pill {
     position: absolute;
     left: 12px;
@@ -1205,14 +1289,11 @@ header {
     border-radius: 999px;
     font-weight: 600;
 }
-
-/* Partie basse : TRANSPARENTE désormais */
 .gfc .gfc-body {
     height: calc(var(--card-h) - 190px);
-    background: transparent; /* <<< demandé */
+    background: transparent;
     padding: 14px 16px 12px;
-    color: var(--text);
-     color: #464646
+    color: #464646;
 }
 .gfc .gfc-title {
     font-size: 16px;
@@ -1220,7 +1301,6 @@ header {
     font-weight: 600;
     color: #0e0e0e;
 }
-
 .gfc .gfc-likes {
     display: flex;
     align-items: center;
@@ -1246,20 +1326,12 @@ header {
 .gfc .gfc-col .gfc-card {
     margin-left: 0;
 }
-/* =======================
-   RESPONSIVE BREAKPOINTS
-   (à coller à la fin)
-   - Desktop : 4 colonnes (inchangé)
-   - ≤1280px : 3 colonnes
-   - ≤992px  : 2 colonnes
-   - ≤640px  : 1 colonne (plein écran)
-======================= */
 
-/* <= 1280px : 3 colonnes, filtres même largeur */
+/* ====== BREAKPOINTS ====== */
 @media (max-width: 1280px) {
     .gfc {
         width: 100%;
-    } /* container fluide sous 1280 */
+    }
     .gfc .gfc-grid {
         grid-template-columns: repeat(3, var(--card-w));
     }
@@ -1267,12 +1339,10 @@ header {
         width: calc(3 * var(--card-w) + 2 * var(--gap));
     }
 }
-
-/* <= 992px : 2 colonnes, même largeur pour la barre de filtres */
 @media (max-width: 992px) {
     .gfc {
         padding: 0 12px;
-    } /* léger padding latéral */
+    }
     .gfc .gfc-grid {
         grid-template-columns: repeat(2, var(--card-w));
     }
@@ -1280,42 +1350,11 @@ header {
         width: calc(2 * var(--card-w) + 1 * var(--gap));
     }
 }
-
-/* <= 640px : 1 colonne plein-texte, filtres 100% */
-@media (max-width: 640px) {
-    .gfc {
-        --gap: 16px;
-    } /* gap un peu réduit */
-    .gfc .gfc-grid {
-        grid-template-columns: 1fr;
-    }
-    .gfc .gfc-filters {
-        width: 100%;
-    } /* largeur barre de filtres = viewport */
-    .gfc .gfc-chip {
-        /* puces un poil plus lisibles */
-        height: 30px;
-        padding: 0 12px;
-        font-size: 14px;
-    }
-    .gfc .gfc-card {
-        width: 100%;
-    } /* cartes plein écran */
-    .gfc .gfc-col {
-        grid-template-columns: 1fr;
-    } /* slides mono-carte */
-    .gfc .gfc-body {
-        padding: 12px;
-    }
-}
-/* <= 640px : cartes un peu moins larges et centrées */
 @media (max-width: 640px) {
     .gfc {
         --gap: 16px;
         padding: 0 8px;
     }
-
-    /* 1 colonne, éléments centrés */
     .gfc .gfc-grid {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -1324,14 +1363,10 @@ header {
         grid-template-columns: 1fr;
         justify-items: center;
     }
-
-    /* Cartes moins larges que l'écran, centrées */
     .gfc .gfc-card {
-        width: 92vw; /* un peu moins que la largeur écran */
-        max-width: 360px; /* plafond pour garder les proportions */
+        width: 92vw;
+        max-width: 360px;
     }
-
-    /* Barre de filtres = largeur viewport, centrée */
     .gfc .gfc-filters {
         width: 100%;
         justify-content: center;
@@ -1341,23 +1376,87 @@ header {
         padding: 0 12px;
         font-size: 14px;
     }
-
     .gfc .gfc-body {
         padding: 12px;
     }
 }
-/* =============== HOVER CARDS (desktop / souris) =============== */
-.gfc .gfc-card {
-    transition: transform 0.18s ease, box-shadow 0.18s ease;
-    transform-origin: center;
-    will-change: transform;
+/* --- FIX: le viewport prend la hauteur de la slide active --- */
+.gfc .gfc-viewport {
+    position: relative;
+    width: 100%;
+    /* enlève toute hauteur figée si tu en as une */
+    min-height: 0;
 }
 
-@media (hover: hover) and (pointer: fine) {
-    .gfc .gfc-card:hover,
-    .gfc .gfc-card:focus-within {
-        transform: scale(1.02);
-        z-index: 2; /* passe au-dessus des voisines pendant l'animation */
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
-    }
+/* toutes les slides sont absolues (ne prennent pas de place) */
+.gfc .gfc-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(20px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* la slide ACTIVE redevient dans le flux -> le conteneur prend sa hauteur */
+.gfc #gfc-all:checked ~ .gfc-viewport .gfc-slide--all,
+.gfc #gfc-rock:checked ~ .gfc-viewport .gfc-slide--rock,
+.gfc #gfc-blues:checked ~ .gfc-viewport .gfc-slide--blues,
+.gfc #gfc-folk:checked ~ .gfc-viewport .gfc-slide--folk {
+    position: relative; /* <<< clé du fix */
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+/* (optionnel) marge au-dessus de la hero */
+.hero {
+    margin-top: clamp(16px, 4vw, 64px);
+}
+/* Layout en colonne + ordre des blocs */
+.page {
+    display: flex;
+    flex-direction: column;
+}
+.cards {
+    order: 0;
+} /* toujours d'abord */
+.cta-after-cards {
+    order: 1;
+} /* bouton sous les cards */
+.hero {
+    order: 2;
+} /* l’image ensuite */
+.cta-after-hero {
+    order: 3;
+} /* bouton sous l’image */
+
+/* Centrage et espacements des conteneurs de bouton */
+.cta-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 56px;
+}
+.cta-after-cards {
+    padding: 24px 0 32px;
+    margin-top: 56px;
+}
+.cta-after-hero {
+    padding: 24px 0 56px;
+    margin-top: 56px;
+}
+
+/* (garde tes styles actuels) — au cas où tu ne les as plus : */
+.btn-contact {
+    padding: 10px 22px;
+    border: 2px solid #b06ac8;
+    border-radius: 999px;
+    background: #fff;
+    font: 600 16px/1 system-ui, sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(90deg, #a4508b, #5f0a87);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
