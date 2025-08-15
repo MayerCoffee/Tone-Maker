@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tone Maker</title>
+
+        <link rel="stylesheet" href="asset/Style/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    </head>
+
+    <body>
+        <header>
+            <!-- ✅ Logo mobile centré (en dehors de .navbar) -->
+            <div class="mobile-logo">
+                <img
+                    src="asset/Logo/logo_tone_maker.png"
+                    alt="Logo Tone Maker"
+                />
+                <span class="logo-text"
+                    ><em>Tone</em> <strong>Maker</strong></span
+                >
+            </div>
+
+            <!-- ✅ Barre de navigation -->
+            <div class="navbar">
+                <!-- 🔽 Menu burger (mobile uniquement) -->
+                <button class="burger" aria-label="Menu mobile">&#9776;</button>
+
+                <!-- 🔽 Logo desktop (desktop uniquement) -->
+                <div class="input nav-left">
+                    <img src="asset/Logo/logo_tone_maker.png" alt="Logo" />
+                    <span class="value desktop-only">Tone Maker</span>
+                </div>
+
+                <!-- 🔽 Navigation centre (desktop uniquement) -->
+                <div class="input nav-center desktop-only">
+                    <button class="value">Magasin et partenaires</button>
+                    <button class="value">Tout les produits</button>
+                    <button class="value">Customisation</button>
+                    <button class="value">Communauté</button>
+                    <button class="value">Mon espace</button>
+                </div>
+
+                <!-- 🔽 Icônes à droite -->
+                <div class="input nav-right">
+                    <!-- Desktop -->
+                    <button class="value desktop-only">Profil</button>
+                    <button class="value desktop-only">Mes commandes</button>
+                </div>
+            </div>
+
+            <!-- 🔽 Menu mobile slide (masqué par défaut) -->
+            <!-- Mobile -->
+            <img
+                class="icon-mobile-only"
+                src="asset/icon/user.png"
+                alt="Profil"
+            />
+            <img
+                class="icon-mobile-only"
+                src="asset/icon/cart.png"
+                alt="Panier"
+            />
+
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-content">
+                    <div class="logo-section">
+                        <span class="logo-name"
+                            ><em>Tone</em> <strong>Maker</strong></span
+                        >
+                        <img src="asset/Logo/logo_tone_maker.png" alt="Logo" />
+                    </div>
+
+                    <div class="user-placeholder">Invité</div>
+
+                    <nav class="mobile-nav-links">
+                        <a href="#">
+                            <img src="asset/icon/user regular.png" alt="" />
+                            Mon espace
+                        </a>
+                        <a href="#">
+                            <img src="asset/icon/shop.png" alt="" />
+                            Magasin et partenaires
+                        </a>
+                        <a href="#">
+                            <img src="asset/icon/box.png" alt="" />
+                            Tout les produits
+                        </a>
+                        <a href="#">
+                            <img src="asset/icon/edit.png" alt="" />
+                            Customisation
+                        </a>
+                        <a href="#">
+                            <img src="asset/icon/group.png" alt="" />
+                            Communauté
+                        </a>
+                    </nav>
+
+                    <button class="cta-join">
+                        Rejoignez notre communauté !
+                    </button>
+
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Contact</a>
+                        <p>Copyright 2025 Company Name.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>
