@@ -1940,7 +1940,7 @@ body {
 
     width: min(var(--content-w), calc(100% - 2 * var(--side-gap)));
     margin: 0 auto var(--bottom-gap); /* centre + espace en bas */
-    margin-top: 100px;
+    margin-top: 200px;
 }
 
 /* Titre */
@@ -1993,53 +1993,120 @@ body {
     object-fit: contain;
     opacity: 0.8; /* teinte gris/bleutée légère comme sur la capture */
 }
-/* === ÉTIRER un peu plus sur grands écrans (ajout seulement) === */
-@media (min-width: 1440px) {
-    .faq-block {
-        --side-gap: 120px; /* ↓ gouttière → cartes plus larges */
-        --content-w: 1500px; /* ↑ largeur max du contenu */
-    }
-    .faq__item {
-        height: 96px;
-        padding-left: 64px;
-        padding-right: 32px;
-        border-radius: 22px;
-    }
-    .faq__q {
-        font-size: 30px;
-    }
+/* ========== FAQ — base (desktop) ========== */
+.faq-block {
+    /* largeur max du contenu + marges latérales pour ne pas toucher les bords */
+    --content-w: 1180px;
+    --side-gap: 140px;
+    width: min(var(--content-w), calc(100% - 2 * var(--side-gap)));
+    margin: 0 auto 60px;
+}
+
+.faq__title {
+    margin: 24px 0 32px;
+    text-align: center;
+    font: 600 36px/1.2 Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+        Arial, sans-serif;
+    color: #0e0e0e;
+}
+
+.faq__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    row-gap: 40px;
+}
+
+.faq__item {
+    display: flex;
+    align-items: center;
+    height: 86px;
+    padding: 0 28px 0 56px;
+    background: #fff;
+    border: 1px solid rgba(151, 64, 203, 0.35);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: border-color 0.18s ease, background-color 0.18s ease,
+        box-shadow 0.18s ease, transform 0.12s ease;
+}
+
+.faq__q {
+    font: 500 28px/1.2 Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+        Arial, sans-serif;
+    color: #0e0e0e;
+}
+
+.faq__chev {
+    margin-left: auto;
+    width: 18px;
+    height: 18px;
+    display: block;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: transform 0.12s ease, opacity 0.18s ease;
+}
+
+/* Hover */
+.faq__item:hover,
+.faq__item:focus-within {
+    background: rgba(151, 64, 203, 0.05);
+    border-color: rgba(151, 64, 203, 0.55);
+    box-shadow: 0 6px 18px rgba(151, 64, 203, 0.08);
+    transform: translateY(-2px);
+}
+.faq__item:hover .faq__chev,
+.faq__item:focus-within .faq__chev {
+    transform: translateX(6px);
+    opacity: 0.95;
+}
+
+/* Accessibilité : réduit les anims si demandé */
+@media (prefers-reduced-motion: reduce) {
+    .faq__item,
     .faq__chev {
-        width: 20px;
-        height: 20px;
+        transition: none;
     }
 }
 
-/* === Responsive large → moyen (ajout) === */
+/* ========== Breakpoints ========== */
+
+/* Très grands écrans : on garde de l’air aux bords */
+@media (min-width: 1600px) {
+    .faq-block {
+        --content-w: 1280px;
+        --side-gap: 200px; /* plus de marge */
+        width: min(var(--content-w), calc(100% - 2 * var(--side-gap)));
+    }
+}
+
+/* Large (≈1280–1599px) */
+@media (max-width: 1599px) {
+    .faq-block {
+        --content-w: 1200px;
+        --side-gap: 120px;
+        width: min(var(--content-w), calc(100% - 2 * var(--side-gap)));
+         margin-top: 100px;
+    }
+}
+
+/* Moyen / laptop (≤1200px) */
 @media (max-width: 1200px) {
     .faq-block {
-        --side-gap: 80px;
-        --content-w: 1100px;
-    }
-    .faq__item {
-        height: 200px;
-        padding-left: 46px;
-        padding-right: 24px;
-        border-radius: 18px;
-    }
-    .faq__q {
-        font-size: 24px;
-    }
-    .faq__chev {
-        width: 18px;
-        height: 18px;
+        --content-w: 1080px;
+        --side-gap: 100px;
+        width: min(var(--content-w), calc(100% - 2 * var(--side-gap)));
+         margin-top: 100px;
     }
 }
 
-/* === Responsive tablette (ajout) === */
+/* Tablette (≤900px) */
 @media (max-width: 900px) {
     .faq-block {
-        --side-gap: 32px;
-        --content-w: 100%;
+        --content-w: 820px;
+        --side-gap: 40px;
+        width: min(var(--content-w), calc(100% - 2 * var(--side-gap)));
+        margin-top: 100px;
     }
     .faq__list {
         row-gap: 24px;
@@ -2059,10 +2126,12 @@ body {
     }
 }
 
-/* === Responsive mobile (ajout) === */
+/* Mobile (≤520px) */
 @media (max-width: 520px) {
     .faq-block {
         --side-gap: 18px;
+        width: calc(100% - 2 * var(--side-gap));
+         margin-top: 100px;
     }
     .faq__item {
         height: 72px;
@@ -2077,68 +2146,7 @@ body {
         height: 14px;
     }
 }
-/* Hover des questions (ajout) */
-.faq__item {
-    cursor: pointer;
-    transition: border-color 0.18s ease, background-color 0.18s ease,
-        box-shadow 0.18s ease, transform 0.12s ease;
-}
 
-.faq__chev {
-    transition: transform 0.12s ease, opacity 0.18s ease; /* ajout */
-}
-
-.faq__item:hover,
-.faq__item:focus-within {
-    background: rgba(151, 64, 203, 0.05); /* léger voile violet */
-    border-color: rgba(151, 64, 203, 0.55); /* bord un peu plus visible */
-    box-shadow: 0 6px 18px rgba(151, 64, 203, 0.08);
-    transform: translateY(-2px);
-}
-
-.faq__item:hover .faq__chev,
-.faq__item:focus-within .faq__chev {
-    transform: translateX(6px);
-    opacity: 0.95;
-}
-
-/* Respecte l'accessibilité : réduit les animations si demandé */
-@media (prefers-reduced-motion: reduce) {
-    .faq__item,
-    .faq__chev {
-        transition: none;
-    }
-}
-/* Étire ENCORE les cartes FAQ (ajout uniquement) */
-@media (min-width: 1280px) {
-    .faq-block {
-        --side-gap: 72px; /* ↓ gouttières → plus large */
-        --content-w: 1600px; /* ↑ largeur max du contenu */
-    }
-    .faq__item {
-        width: 100%;
-        padding-left: 60px; /* un peu plus d’air à gauche */
-        padding-right: 28px;
-    }
-}
-
-/* Très grands écrans : pousse encore un peu (ajout) */
-@media (min-width: 1600px) {
-    .faq-block {
-        --side-gap: 56px; /* rapproche des bords */
-        --content-w: 1720px; /* étire le container */
-    }
-    .faq__item {
-        height: 100px;
-    }
-    .faq__q {
-        font-size: 30px;
-    }
-    .faq__chev {
-        width: 20px;
-        height: 20px;
-    }
-}
 /* ===== FOOTER — fond dégradé + grille ===== */
 .tm-footer {
     --pad-x: 48px; /* gouttières horizontales */
