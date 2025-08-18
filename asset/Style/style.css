@@ -2086,7 +2086,7 @@ body {
         --content-w: 1200px;
         --side-gap: 120px;
         width: min(var(--content-w), calc(100% - 2 * var(--side-gap)));
-         margin-top: 100px;
+        margin-top: 100px;
     }
 }
 
@@ -2096,7 +2096,7 @@ body {
         --content-w: 1080px;
         --side-gap: 100px;
         width: min(var(--content-w), calc(100% - 2 * var(--side-gap)));
-         margin-top: 100px;
+        margin-top: 100px;
     }
 }
 
@@ -2131,7 +2131,7 @@ body {
     .faq-block {
         --side-gap: 18px;
         width: calc(100% - 2 * var(--side-gap));
-         margin-top: 100px;
+        margin-top: 100px;
     }
     .faq__item {
         height: 72px;
@@ -2625,11 +2625,4 @@ body {
         font-size: 24px;
     }
 }
-/* lien "Customisation" sans soulignement */
-.nav-center a.value,
-.nav-center a.value:visited,
-.nav-center a.value:hover,
-.nav-center a.value:focus {
-    text-decoration: none;
-    border-bottom: 0; /* au cas où l’underline serait simulé en bordure */
-}
+
