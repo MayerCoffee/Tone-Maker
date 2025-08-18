@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tone Maker</title>
 
-        <link rel="stylesheet" href="asset/Style/style.css" />
+        <link rel="stylesheet" href="asset/Style/customisation.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     </head>
@@ -34,14 +34,12 @@
                     <span class="value desktop-only">Tone Maker</span>
                 </div>
 
-                <!-- 🔽 Navigation centre (desktop uniquement) -->
                 <div class="input nav-center desktop-only">
                     <button class="value">Magasin et partenaires</button>
                     <button class="value">Tout les produits</button>
-
-                    <!-- ✅ Lien qui envoie vers customisation.html -->
-                    <a class="value" href="customisation.html">Customisation</a>
-
+                    <button class="value" aria-current="page">
+                        Customisation
+                    </button>
                     <button class="value">Communauté</button>
                     <button class="value">Mon espace</button>
                 </div>
@@ -122,6 +120,289 @@
                 <img src="asset/icon/Arrow Head.png" />
             </button>
         </div>
+        <!-- ===== Titre + Sous-titre ===== -->
+        <section class="tm-intro">
+            <h1 class="tm-intro__title">
+                Choisissez votre template pour commencer
+            </h1>
+            <p class="tm-intro__sub">
+                Sélectionnez le modèle de base qui correspond à votre style
+                musical
+            </p>
+        </section>
+
+        <!-- ====== Cards Guitares (4 colonnes) ====== -->
+        <section class="tm-cards">
+            <!-- ========== Card 1 ========== -->
+            <article class="tm-card">
+                <div class="tm-card__media">
+                    <!-- 🔁 IMAGE PRINCIPALE -->
+                    <img
+                        src="asset/IMG/page_slider/Rockeur_modele.png"
+                        alt="Guitare électrique en concert"
+                    />
+
+                    <span class="tm-card__badge tm-card__badge--orange">
+                        <!-- 🔁 ICÔNE ÉTOILE -->
+                        <img
+                            class="i"
+                            src="asset/icon/icon_star.png"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        Populaire
+                    </span>
+
+                    <span class="tm-card__price">A partir de 899 €</span>
+                </div>
+
+                <div class="tm-card__panel">
+                    <header class="tm-card__head">
+                        <h3 class="tm-card__title">Guitare Electrique</h3>
+                        <span class="tm-card__count">50 + modèles</span>
+                    </header>
+
+                    <p class="tm-card__sub">Rock, Blues, jazz, Funk</p>
+
+                    <ul class="tm-card__features">
+                        <li>
+                            <!-- 🔁 ICÔNE CHECK -->
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Micros personnalisable
+                        </li>
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Effets intégrés
+                        </li>
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Design moderne
+                        </li>
+                    </ul>
+
+                    <a href="#" class="tm-card__cta">
+                        <!-- 🔁 ICÔNE GUITARE -->
+                        <img
+                            class="i"
+                            src="asset/icon/nimbus_guitar.png"
+                            alt=""
+                        />
+                        Je pars de ce modèle
+                    </a>
+                </div>
+            </article>
+
+            <!-- ========== Card 2 ========== -->
+            <article class="tm-card">
+                <div class="tm-card__media">
+                    <!-- 🔁 IMAGE PRINCIPALE -->
+                    <img
+                        src="asset/IMG/page_slider/folk_modèle.png"
+                        alt="Guitare acoustique dans l'herbe"
+                    />
+
+                    <span class="tm-card__badge tm-card__badge--teal">
+                        <!-- 🔁 ICÔNE ÉTOILE -->
+                        <img
+                            class="i"
+                            src="asset/icon/icon_star.png"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        Nouveau
+                    </span>
+
+                    <span class="tm-card__price">A partir de 649 €</span>
+                </div>
+
+                <div class="tm-card__panel">
+                    <header class="tm-card__head">
+                        <h3 class="tm-card__title">Guitare Acoustique</h3>
+                        <span class="tm-card__count">30 + modèles</span>
+                    </header>
+
+                    <p class="tm-card__sub">Folk, Country, classique</p>
+
+                    <ul class="tm-card__features">
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Bois Premium
+                        </li>
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Son naturel
+                        </li>
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Confort de jeu
+                        </li>
+                    </ul>
+
+                    <a href="#" class="tm-card__cta">
+                        <!-- 🔁 ICÔNE GUITARE -->
+                        <img
+                            class="i"
+                            src="asset/icon/nimbus_guitar.png"
+                            alt=""
+                        />
+                        Je pars de ce modèle
+                    </a>
+                </div>
+            </article>
+
+            <!-- ========== Card 3 ========== -->
+            <article class="tm-card">
+                <div class="tm-card__media">
+                    <!-- 🔁 IMAGE PRINCIPALE -->
+                    <img
+                        src="asset/IMG/page_slider/Rythmique_modèle.png"
+                        alt="Guitare basse sur scène"
+                    />
+                    <span class="tm-card__price">A partir de 749 €</span>
+                </div>
+
+                <div class="tm-card__panel">
+                    <header class="tm-card__head">
+                        <h3 class="tm-card__title">Guitare Basse</h3>
+                        <span class="tm-card__count">20 + modèles</span>
+                    </header>
+
+                    <p class="tm-card__sub">4, 5, 6 cordes disponibles</p>
+
+                    <ul class="tm-card__features">
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Graves profondes
+                        </li>
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Electronique intégrée
+                        </li>
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Ergonomie améliorée
+                        </li>
+                    </ul>
+
+                    <a href="#" class="tm-card__cta">
+                        <!-- 🔁 ICÔNE GUITARE -->
+                        <img
+                            class="i"
+                            src="asset/icon/nimbus_guitar.png"
+                            alt=""
+                        />
+                        Je pars de ce modèle
+                    </a>
+                </div>
+            </article>
+
+            <!-- ========== Card 4 ========== -->
+            <article class="tm-card">
+                <div class="tm-card__media">
+                    <!-- 🔁 IMAGE PRINCIPALE -->
+                    <img
+                        src="/asset/IMG/page_slider/Reggaes.png"
+                        alt="Guitare basse lumières colorées"
+                    />
+                    <span class="tm-card__price">A partir de 800 €</span>
+                </div>
+
+                <div class="tm-card__panel">
+                    <header class="tm-card__head">
+                        <h3 class="tm-card__title">Guitare Basse</h3>
+                        <span class="tm-card__count">20 + modèles</span>
+                    </header>
+
+                    <p class="tm-card__sub">4, 5, 6 cordes disponibles</p>
+
+                    <ul class="tm-card__features">
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Graves profondes
+                        </li>
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Electronique intégrée
+                        </li>
+                        <li>
+                            <img
+                                class="i"
+                                src="asset/icon/check-circle.png"
+                                alt=""
+                            />
+                            Ergonomie améliorée
+                        </li>
+                    </ul>
+
+                    <a href="#" class="tm-card__cta">
+                        <!-- 🔁 ICÔNE GUITARE -->
+                        <img
+                            class="i"
+                            src="asset/icon/nimbus_guitar.png"
+                            alt=""
+                        />
+                        Je pars de ce modèle
+                    </a>
+                </div>
+            </article>
+        </section>
+        <!-- ===== Bouton "Continuer avec ce modèle" (centré) ===== -->
+        <div class="tm-continue-wrap">
+            <button class="tm-continue">
+                <span>Continuer avec ce modèle</span>
+                <!-- 🔁 ICÔNE flèche : remplace le src ci-dessous par TON fichier -->
+                <img
+                    class="tm-continue__icon"
+                    src="/chemin/vers/tes/icones/chevron-right.svg"
+                    alt=""
+                />
+            </button>
+        </div>
+
         <footer class="tm-footer">
             <div class="tmf-grid">
                 <!-- ===== Colonne 1 : Logo + baseline + réseaux ===== -->
@@ -217,6 +498,16 @@
                 if (e.target === mobileMenu) {
                     mobileMenu.style.display = "none";
                 }
+            });
+        </script>
+        <script>
+            document.querySelectorAll(".nav-center .value").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    document
+                        .querySelectorAll(".nav-center .value")
+                        .forEach((b) => b.classList.remove("is-current"));
+                    btn.classList.add("is-current");
+                });
             });
         </script>
     </body>

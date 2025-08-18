@@ -259,6 +259,45 @@ header {
     background-color: #ffffff;
     color: #0d1117;
 }
+/* État actif de l'onglet courant */
+.nav-center .value.is-current {
+    background: #ffffff;
+    color: #0d1117;
+    border-radius: 300px;
+}
+
+/* Ne pas perdre le style actif au survol/focus */
+.nav-center .value.is-current:hover,
+.nav-center .value.is-current:focus {
+    background: #ffffff;
+    color: #0d1117;
+}
+/* État actif qui reste même quand la souris part */
+.nav-center .value.is-current {
+    background: #ffffff;
+    color: #0d1117;
+}
+.nav-center .value.is-current:hover,
+.nav-center .value.is-current:focus {
+    background: #ffffff; /* ne change pas au hover */
+    color: #0d1117;
+}
+/* Onglet actif (persiste sans survol) */
+.nav-center .value[aria-current="page"],
+.nav-center .value.is-current {
+    background: #ffffff;
+    color: #0d1117;
+    border-radius: 300px;
+}
+
+/* Ne pas perdre l’état au hover/focus */
+.nav-center .value[aria-current="page"]:hover,
+.nav-center .value.is-current:hover,
+.nav-center .value[aria-current="page"]:focus,
+.nav-center .value.is-current:focus {
+    background: #ffffff;
+    color: #0d1117;
+}
 
 /* ✅ Positionnement bas droite */
 .create-guitar-container {
@@ -824,5 +863,426 @@ header {
     }
     .tmf-center-title {
         font-size: 24px;
+    }
+}
+/* ====== Grille des 4 cards ====== */
+.tm-cards {
+    max-width: 1760px;
+    margin: 24px auto 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    padding: 0 12px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Impact,
+        Haettenschweiler, "Arial Narrow Bold", sans-serif, Arial, sans-serif;
+    margin-top: 150px;
+}
+
+/* ====== Card ====== */
+.tm-card {
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+.tm-card__media {
+    position: relative;
+    height: 310px; /* hauteur visuelle identique à ta capture */
+    overflow: hidden;
+}
+.tm-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Badges en haut-gauche */
+.tm-card__badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 26px;
+    padding: 0 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #111;
+}
+.tm-card__badge .i {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+.tm-card__badge--orange {
+    background: #ffb44d;
+} /* “Populaire” */
+.tm-card__badge--teal {
+    background: #39f3c9;
+} /* “Nouveau”   */
+
+/* Prix en bas de l'image */
+.tm-card__price {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    background: #37f3cf; /* aqua/menthe comme la capture */
+    color: #0b0b0b;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+/* Panneau dégradé violet */
+.tm-card__panel {
+    background: linear-gradient(135deg, #3c0075 0%, #6b00c4 60%, #7e1ad9 100%);
+    padding: 26px 24px 22px;
+    color: #fff;
+}
+.tm-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+.tm-card__title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+.tm-card__count {
+    display: inline-block;
+    font-size: 12px;
+    color: #d5c8ff;
+    border: 1px solid rgba(220, 203, 255, 0.6);
+    padding: 4px 8px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+.tm-card__sub {
+    margin: 6px 0 14px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Liste de features */
+.tm-card__features {
+    list-style: none;
+    margin: 0 0 18px 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+.tm-card__features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #f7f7f7;
+}
+.tm-card__features .i {
+    width: 18px;
+    height: 18px;
+    display: block;
+    /* tes icônes check vertes seront utilisées directement */
+}
+
+/* CTA */
+.tm-card__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 44px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #0b0b0b;
+    text-decoration: none;
+    background: linear-gradient(90deg, #1ae39a 0%, #31def6 100%);
+    transition: transform 0.08s ease, filter 0.08s ease;
+}
+.tm-card__cta .i {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+.tm-card__cta:hover {
+    transform: translateY(-1px);
+}
+.tm-card__cta:active {
+    transform: translateY(0);
+    filter: brightness(0.96);
+}
+
+/* ====== Responsive douce ====== */
+@media (max-width: 1500px) {
+    .tm-cards {
+        gap: 24px;
+    }
+    .tm-card__media {
+        height: 280px;
+    }
+}
+@media (max-width: 1280px) {
+    .tm-cards {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1100px;
+    }
+}
+@media (max-width: 640px) {
+    .tm-cards {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+    }
+    .tm-card__media {
+        height: 240px;
+    }
+}
+/* --- Cards plus basses (compact) --- */
+.tm-card__media {
+    height: 230px;
+} /* avant: 310px */
+.tm-card__panel {
+    padding: 20px 22px 16px;
+} /* un peu moins d'air */
+.tm-card__features {
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.tm-card__cta {
+    height: 40px;
+} /* avant: 44px */
+/* 1) Le panneau violet doit remplir toute la hauteur jusqu'aux coins du bas */
+.tm-card {
+    display: flex; /* la card devient une colonne */
+    flex-direction: column;
+    background: transparent; /* évite que le fond blanc apparaisse aux coins */
+}
+
+.tm-card__media {
+    flex: 0 0 230px; /* hauteur de l'image (ajuste si besoin) */
+    height: 230px; /* garde une hauteur fixe compacte */
+    overflow: hidden;
+}
+
+.tm-card__panel {
+    flex: 1 1 auto; /* occupe tout l'espace restant -> violet jusqu'en bas */
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px; /* suit les coins arrondis de la card */
+    padding: 20px 22px 16px; /* padding un peu réduit (optionnel) */
+}
+
+/* 2) Titre sur UNE SEULE LIGNE (pas de wrap) */
+.tm-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+    min-width: 0; /* autorise l’ellipse du titre si besoin */
+}
+
+.tm-card__title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    white-space: nowrap; /* pas de retour à la ligne */
+    overflow: hidden; /* coupe proprement si trop long */
+    text-overflow: ellipsis; /* … si ça dépasse */
+    flex: 1 1 auto; /* prend toute la place dispo */
+}
+
+.tm-card__count {
+    flex: 0 0 auto; /* le badge ne rétrécit pas */
+}
+
+/* Compactage léger du contenu (optionnel) */
+.tm-card__features {
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.tm-card__cta {
+    height: 40px;
+}
+/* --- Transitions de base --- */
+.tm-card {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    will-change: transform, box-shadow;
+}
+.tm-card__media img {
+    transition: transform 0.28s ease;
+}
+.tm-card__price,
+.tm-card__badge {
+    transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+/* --- Effets au survol/focus clavier --- */
+.tm-card:hover,
+.tm-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.tm-card:hover .tm-card__media img,
+.tm-card:focus-within .tm-card__media img {
+    transform: scale(1.06);
+}
+
+.tm-card:hover .tm-card__price,
+.tm-card:focus-within .tm-card__price {
+    transform: translateY(-2px);
+}
+
+.tm-card:hover .tm-card__badge,
+.tm-card:focus-within .tm-card__badge {
+    opacity: 0.95;
+}
+
+.tm-card:hover .tm-card__cta,
+.tm-card:focus-within .tm-card__cta {
+    transform: translateY(-1px);
+}
+
+/* Respecte la préférence utilisateur (réduit les anims) */
+@media (prefers-reduced-motion: reduce) {
+    .tm-card,
+    .tm-card__media img,
+    .tm-card__price,
+    .tm-card__badge,
+    .tm-card__cta {
+        transition: none;
+    }
+}
+/* ===== Intro centrée (titre + sous-titre) ===== */
+.tm-intro {
+    /* même logique de largeur que tes sections: centre + gouttières */
+    --w: 1200px;
+    max-width: var(--w);
+    margin: 110px auto 8px; /* 110px pour dégager la navbar fixe */
+    padding: 0 20px;
+    text-align: center;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+        sans-serif;
+}
+
+.tm-intro__title {
+    margin: 0 0 22px 0;
+    font-weight: 800;
+    /* taille responsive proche de ta capture (très grande sur desktop) */
+    font-size: clamp(36px, 7.5vw, 84px);
+    line-height: 1.04;
+    letter-spacing: 0.2px;
+    color: #1a0031; /* violet très sombre */
+}
+
+.tm-intro__sub {
+    margin: 0;
+    font-weight: 500;
+    font-size: clamp(16px, 2.2vw, 28px);
+    line-height: 1.35;
+    color: #7a7a7a; /* gris doux comme sur la capture */
+}
+
+/* petits ajustements sur mobile */
+@media (max-width: 560px) {
+    .tm-intro {
+        margin-top: 90px;
+    }
+}
+/* Titre + sous-titre : plus petits */
+.tm-intro__title {
+    font-size: clamp(28px, 5vw, 60px); /* avant: clamp(36px, 7.5vw, 84px) */
+}
+.tm-intro__sub {
+    font-size: clamp(14px, 1.6vw, 22px); /* avant: clamp(16px, 2.2vw, 28px) */
+}
+
+/* Bloc intro : marge inférieure moins grande */
+.tm-intro {
+    margin: 80px auto 12px; /* avant: 110px auto 8px */
+}
+
+/* Les cards étaient décalées par ce gros margin-top */
+.tm-cards {
+    margin-top: 40px; /* avant: 150px */
+}
+/* Espace de sécurité sous la navbar fixe */
+:root {
+    --nav-safe: 120px; /* augmente si besoin (130–160px) */
+}
+
+/* Descend le bloc titre/sous-titre */
+.tm-intro {
+    margin-top: calc(var(--nav-safe) + 40px); /* avant ~80–110px */
+    margin-bottom: 8px;
+}
+
+/* Décale un peu les cards mais moins qu'avant */
+.tm-cards {
+    margin-top: 28px; /* avant 40px/150px selon tes essais */
+}
+
+/* Sur mobile (ta navbar n'est plus fixed), on réduit l'espace */
+@media (max-width: 1472px) {
+    .tm-intro {
+        margin-top: 90px;
+    }
+}
+/* Conteneur centré */
+.tm-continue-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 28px 0 60px; /* espace au-dessus et en dessous */
+}
+
+/* Bouton pillule bordure VISIBLE (violet uni) */
+.tm-continue {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px 28px;
+    background: #fff;
+    color: #21013b;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 9999px;
+
+    /* 👉 la bordure visible */
+    border: 2px solid #b06ac8 !important;
+
+    /* petit relief optionnel pour mieux la voir */
+    box-shadow: 0 0 0 1px rgba(176, 106, 200, 0.25) inset;
+}
+
+/* Désactive le faux contour dégradé si tu l'avais */
+.tm-continue::before {
+    content: none !important;
+}
+
+/* Hover simple */
+.tm-continue:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(176, 106, 200, 0.15);
+}
+
+.tm-continue:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 560px) {
+    .tm-continue {
+        padding: 14px 20px;
+        font-size: 14px;
     }
 }
