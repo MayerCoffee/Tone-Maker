@@ -1286,3 +1286,259 @@ header {
         font-size: 14px;
     }
 }
+.etape {
+    --purple: #4c0fb3;
+    --card-border: #eee7fa;
+    --shadow: 0 6px 16px rgba(104, 54, 201, 0.1);
+    --ring-grad: conic-gradient(
+        #ff00b8 0 25%,
+        #ff9a00 25% 50%,
+        #ff00b8 50% 75%,
+        #ff9a00 75% 100%
+    );
+    --ring-outer: 82px;
+    --ring-thickness: 10px;
+    --card-w: 520px;
+    --card-h: 190px;
+    --radius: 28px;
+
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    display: flex;
+    gap: 36px;
+    padding: 18px 22px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.etape-card {
+    width: var(--card-w);
+    height: var(--card-h);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    padding: 22px 26px;
+    overflow: visible;
+    text-align: left;
+}
+
+.etape-ring {
+    width: var(--ring-outer);
+    height: var(--ring-outer);
+    border-radius: 50%;
+    background: var(--ring-grad);
+    position: relative;
+    flex: 0 0 auto;
+}
+.etape-ring::after {
+    content: "";
+    position: absolute;
+    inset: var(--ring-thickness);
+    background: #fff;
+    border-radius: 50%;
+}
+.etape-num {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 400;
+    color: #111;
+    z-index: 2;
+}
+
+.etape-content {
+    margin-left: 22px;
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.etape-title {
+    margin: 0 0 16px 0;
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--purple);
+    letter-spacing: 0.2px;
+    line-height: 1.1;
+}
+
+.etape-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 22px;
+    height: 48px;
+    border-radius: 999px;
+    background: #fff; /* ✅ fond blanc */
+    border: 1.5px solid #4c0fb3; /* ✅ contour violet identique au titre */
+    color: #4c0fb3; /* texte violet pour cohérence */
+    font-size: 16px;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: none; /* option : supprime l’ombre douce */
+}
+.etape-pill img {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+
+.etape-pill-sm {
+    height: 42px;
+    padding: 10px 18px;
+    gap: 12px;
+    font-size: 15px;
+}
+
+@media (max-width: 1200px) {
+    .etape-card {
+        width: 480px;
+    }
+}
+@media (max-width: 1024px) {
+    .etape-card {
+        width: 100%;
+    }
+}
+/* ====== Layout global des 4 cards ====== */
+.etape {
+    --violet: #5116b8; /* titre */
+    --card-border: #ede6f8; /* fin liseré */
+    --card-shadow: 0 8px 20px rgba(104, 54, 201, 0.08);
+    --ring-grad: conic-gradient(
+        #ff00b8 0 24%,
+        #ff9a00 24% 50%,
+        #ff00b8 50% 76%,
+        #ff9a00 76% 100%
+    );
+    --ring-outer: 86px; /* diamètre extérieur du rond */
+    --ring-thick: 8px; /* épaisseur anneau */
+    --gap-x: 22px; /* écart rond ↔ texte */
+    --card-w: 520px;
+    --card-h: 180px;
+    --radius: 28px;
+
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    display: flex;
+    gap: 36px;
+    padding: 18px 22px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ====== Card ====== */
+.etape-card {
+    width: var(--card-w);
+    height: var(--card-h);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    background: #fff;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    align-items: center; /* rond et bloc texte verticalement centrés */
+    padding: 22px 26px;
+    text-align: left; /* bloque tout centrage hérité */
+    overflow: visible;
+}
+
+/* ====== Rond numéroté ====== */
+.etape-ring {
+    width: var(--ring-outer);
+    height: var(--ring-outer);
+    border-radius: 50%;
+    background: conic-gradient(
+        from -90deg,
+        /* décalage du départ pour cacher la coupure */ #ff00b8 0%,
+        #ff9a00 50%,
+        #ff00b8 100% /* on boucle sur la même couleur qu'au début */
+    );
+    position: relative;
+    flex: 0 0 auto;
+}
+.etape-ring::after {
+    content: "";
+    position: absolute;
+    inset: var(--ring-thick);
+    background: #fff;
+    border-radius: 50%;
+}
+
+.etape-num {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 36px; /* chiffre noir comme ta cap */
+    line-height: 1;
+    font-weight: 400;
+    color: #000;
+    z-index: 2;
+}
+
+/* ====== Texte + bouton ====== */
+.etape-content {
+    margin-left: var(--gap-x);
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Titre + bouton alignés à gauche */
+}
+
+.etape-title {
+    margin: 0 0 16px 0;
+    font-weight: 700;
+    font-size: 36px; /* taille visuelle identique à la cap */
+    color: var(--violet);
+    letter-spacing: 0.2px;
+    line-height: 1.15;
+}
+
+/* ====== Pilule ====== */
+.etape-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 22px;
+    height: 48px; /* comme étapes 1 & 2 & 4 */
+    border-radius: 999px;
+    background: #ffffff; /* gris clair */
+    border: 1px solid #e6e7ee;
+
+    font-size: 16px;
+    text-decoration: none;
+    line-height: 1;
+}
+.etape-pill img {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+
+/* pilule plus petite pour l'étape 3 */
+.etape-pill--sm {
+    height: 42px;
+    padding: 10px 18px;
+    gap: 12px;
+    font-size: 15px;
+}
+
+/* ====== Responsive facultatif ====== */
+@media (max-width: 1200px) {
+    .etape-card {
+        width: 480px;
+    }
+}
+@media (max-width: 1024px) {
+    .etape-card {
+        width: 100%;
+    }
+}
