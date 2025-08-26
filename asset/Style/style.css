@@ -34,6 +34,19 @@ header {
     border-radius: 50%;
     padding: 12px 20px;
 }
+a.value {
+    text-decoration: none; /* enlève le souligné */
+}
+
+a.value:hover {
+    text-decoration: none; /* garde sans souligné au survol */
+}
+a.value {
+    font-size: 14px; /* mets la même valeur que tes autres boutons nav */
+    font-weight: 500; /* idem, ajuste selon ton design */
+    color: white; /* pour rester cohérent */
+    text-decoration: none;
+}
 
 /* ✅ Style des 3 blocs (gauche, centre, droite) */
 .input {
@@ -491,6 +504,43 @@ header {
 .custom h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+}
+/* Bande logos */
+.logos-mask {
+    overflow: hidden;
+}
+
+.logos-track {
+    --gap: 80px;
+    --speed: 45s;
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    min-width: max-content;
+    padding-inline: var(--gap);
+}
+
+.logos-track img {
+    height: 120px; /* taille des logos */
+    width: auto;
+    flex: 0 0 auto;
+}
+
+/* Animation active en >=1822px */
+@media (min-width: 1px) {
+    .logos-track {
+        animation: scroll-logos var(--speed) linear infinite;
+        will-change: transform;
+    }
+}
+
+@keyframes scroll-logos {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 .custom {
@@ -2625,4 +2675,3 @@ body {
         font-size: 24px;
     }
 }
-
