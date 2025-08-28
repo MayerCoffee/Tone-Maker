@@ -1319,3 +1319,101 @@ a.value {
     border-color: #b06ac8; /* violet + marqué */
     box-shadow: 0 12px 28px rgba(176, 106, 200, 0.25);
 }
+/* ====== Container ====== */
+.types-container {
+    max-width: 1500px;
+    margin: 40px auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    margin-bottom: 50px;
+}
+
+.type-partenaire {
+    border: 1px solid #e3c8f5;
+    border-radius: 18px;
+    background: #fff;
+    height: 200px; /* ↓ Avant 280px, réduit pour éviter le vide */
+    padding: 24px 20px; /* ↓ Avant 32px 24px, plus compact */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.tp-title {
+    font-size: 18px; /* ↓ Avant 20px, un peu plus sobre */
+    font-weight: 600;
+    margin: 6px 0; /* ↓ réduit l’espace vertical */
+    color: #111;
+}
+
+.tp-desc {
+    font-size: 14px; /* ↓ Avant 15px */
+    line-height: 1.4;
+    color: #999;
+    margin: 0 auto 12px; /* ↓ Avant 16px, réduit */
+    max-width: 240px; /* ↓ un peu plus compact */
+}
+
+/* Hover effet */
+.type-partenaire:hover {
+    transform: translateY(-6px);
+    border-color: #b06ac8; /* violet renforcé */
+    box-shadow: 0 10px 28px rgba(176, 106, 200, 0.22);
+}
+
+/* ====== Icône ====== */
+.tp-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 12px;
+}
+.tp-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ====== Texte ====== */
+.tp-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #111;
+}
+.tp-desc {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #999;
+    margin: 0 auto 16px;
+    max-width: 260px;
+}
+
+/* ====== Badge turquoise ====== */
+.tp-badge {
+    background: #00dfc7;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 6px;
+    margin-top: auto;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 1024px) {
+    .types-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 640px) {
+    .types-container {
+        grid-template-columns: 1fr;
+    }
+}
