@@ -1555,15 +1555,35 @@ a.value {
 
     display: grid;
     grid-template-columns: 1fr 1.35fr; /* gauche / droite */
-    gap: 52px;
+    gap: 0;
     margin-top: 100px;
+}
+/* Stack the rows vertically inside the card body */
+.cc-shop .cc-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* keep left-aligned */
+    gap: 8px; /* space between lines */
+}
+
+/* Each info line = its own row */
+.cc-shop .cc-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Extra spacing for the "Click and Collect + note" row */
+.cc-shop .cc-row.cc-row-gap {
+    margin-top: 4px; /* tweak if you want more/less */
 }
 
 /* ===== Colonne gauche : avantages ===== */
 .cc-left {
     display: flex;
     flex-direction: column;
-    gap: 46px;
+    gap: 60px;
+    margin-top: 90px
 }
 
 .cc-benefit {
