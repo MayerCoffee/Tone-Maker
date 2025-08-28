@@ -1038,7 +1038,7 @@ a.value {
     text-align: center;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
         sans-serif;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .tm-intro__title {
@@ -1049,6 +1049,7 @@ a.value {
     line-height: 1.04;
     letter-spacing: 0.2px;
     color: #1a0031; /* violet très sombre */
+    margin-top: 100px;
 }
 
 .tm-intro__sub {
@@ -1090,7 +1091,7 @@ a.value {
 /* Descend le bloc titre/sous-titre */
 .tm-intro {
     margin-top: calc(var(--nav-safe) + 40px); /* avant ~80–110px */
-    margin-bottom: 8px;
+    margin-bottom: 100px;
 }
 
 /* Décale un peu les cards mais moins qu'avant */
@@ -1295,4 +1296,26 @@ a.value {
     .tm-value {
         font-size: 26px;
     }
+}
+/* ====== Fiche ====== */
+.fich {
+    height: 220px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.fich:hover {
+    transform: translateY(-6px);
+    border-color: #b06ac8; /* violet + marqué */
+    box-shadow: 0 12px 28px rgba(176, 106, 200, 0.25);
 }
