@@ -1188,8 +1188,8 @@ a.value {
     }
     .searchbar-btn {
         height: 54px;
-        padding: 0 20px;
-        font-size: 15px;
+        padding: 0 15px;
+        font-size: 12px;
     }
 }
 /* ====== Scope composant ====== */

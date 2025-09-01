@@ -442,21 +442,46 @@ a.value {
 .cta-button {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 22px; /* encore plus compact */
-    font-size: 1rem; /* taille de texte plus réduite */
+    gap: 6px;
+
+    padding: 16px 28px; /* espace interne */
+    min-height: 60px; /* force plus de hauteur */
+    line-height: 1.6; /* le texte respire plus */
+
     font-weight: 700;
+    font-size: 1rem;
     color: white;
-    background-color: #5f8377;
+
+    background-color: rgb(95, 131, 119);
     border-radius: 999px;
     border: 2px solid transparent;
-    background-image: linear-gradient(#5f8377, #5f8377),
-        linear-gradient(to right, #2da9d9, #3d0144);
+    background-image: linear-gradient(rgb(95, 131, 119), rgb(95, 131, 119)),
+        linear-gradient(to right, rgb(45, 169, 217), rgb(61, 1, 68));
     background-origin: padding-box, border-box;
     background-clip: padding-box, border-box;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
+
+/* cœur plus petit */
+.cta-button .heart {
+    font-size: 0.9rem; /* réduis encore à 0.8rem si tu veux */
+    line-height: 1;
+}
+
+/* texte plus grand */
+.cta-button .cta-text {
+    font-size: 1.2rem; /* augmente pour mettre le texte en avant */
+    line-height: 1.2;
+}
+
+/* Cible uniquement l’icône cœur dans le bouton */
+.cta-button img,
+.cta-button svg {
+    width: 16px; /* plus petit */
+    height: 16px;
+}
+ition: all 0.3s ease;
 
 .content {
     height: 100vh;
@@ -471,6 +496,41 @@ a.value {
     flex-direction: column; /* 👈 empile verticalement */
     align-items: center;
     gap: 1.5rem; /* 👈 espace entre texte et bouton */
+}
+/* ✅ Texte plus petit à partir de 620px */
+@media (max-width: 620px) {
+    .content-inner h1 {
+        font-size: 2rem; /* ajuste selon le rendu */
+        line-height: 1.2;
+        text-align: center;
+    }
+}
+
+/* ✅ Remonter le bloc en dessous de 605px */
+@media (max-width: 605px) {
+    .content-inner {
+        transform: translateY(-8vh); /* ajuste selon la hauteur voulue */
+    }
+}
+
+/* ✅ Image rétrécie sur petits écrans */
+@media (max-width: 620px) {
+    .hero img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover; /* évite la déformation */
+    }
+}
+
+/* ✅ Encore plus petit en dessous de 605px */
+@media (max-width: 605px) {
+    .hero img {
+        max-width: 90%; /* tu peux descendre à 80% si besoin */
+    }
+
+    .content-inner {
+        transform: translateY(-8vh); /* comme avant */
+    }
 }
 
 .heart {
@@ -1562,22 +1622,68 @@ body {
     /* >>> règle UNIQUE de décalage vertical <<< */
     transform: translateY(var(--hero-shift, -20vh));
 }
-
-/* Ajuste ici selon les tailles d'écran */
+/* Desktop large */
 @media (min-width: 1280px) {
     :root {
         --hero-shift: -22vh;
-    } /* desktop */
+    }
 }
+
+/* Tablette */
 @media (max-width: 1024px) {
     :root {
         --hero-shift: -14vh;
-    } /* tablette */
+    }
 }
+
+/* Mobile générique */
 @media (max-width: 640px) {
     :root {
         --hero-shift: -6vh;
-    } /* mobile */
+        --help-gutter: 24px;
+        --help-colmin: 260px;
+    }
+}
+
+/* Mobile étroit */
+@media (max-width: 620px) {
+    :root {
+        --hero-shift: -18vh; /* ⬅️ plus fort qu’avant (-12vh) */
+        --help-gutter: 24px;
+        --help-colmin: 260px;
+    }
+}
+@media (max-width: 620px) {
+    :root {
+        --hero-shift: -12vh;
+        --help-gutter: 0px; /* pas de marge latérale => panneaux = 100% */
+        --help-colmin: 200px; /* colonnes un peu plus étroites si besoin */
+    }
+}
+
+.content-inner > img:first-of-type {
+    width: 50vw; /* énorme largeur */
+    max-width: none; /* aucune limite */
+    height: auto;
+    transform: translateY(-20px); /* remonte un peu */
+}
+/* L’image du hero ne descend jamais sous 466px (= 50vw quand viewport = 932px) */
+.content-inner > img:first-of-type {
+    width: clamp(466px, 50vw, 1200px); /* min 466, sinon 50vw, max 1200 */
+    max-width: none;
+    height: auto;
+    transform: translateY(-20px);
+}
+
+/* Si tu veux aussi empêcher tout le bloc de rétrécir en-dessous de 932px : */
+.content-inner {
+    min-width: 932px; /* ⚠️ provoque du scroll horizontal sur mobiles étroits */
+}
+
+.content-inner .cta-button {
+    font-size: 0.65rem; /* texte très petit */
+    padding: 4px 10px; /* bouton très fin */
+    transform: translateY(-25px);
 }
 
 /* Titres (tu peux garder les tiens) */
