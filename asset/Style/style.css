@@ -1,4 +1,8 @@
+
 /* Appliquer la police Inter à tout le document */
+* {
+    box-sizing: border-box;
+}
 
 body {
     font-family: "Inter", sans-serif;
@@ -1408,7 +1412,7 @@ body {
 .gfc .gfc-body {
     height: calc(var(--card-h) - 190px);
     background: transparent;
-    padding: 14px 16px 12px;
+    padding: 1px 16px 12px;
     color: #464646;
 }
 .gfc .gfc-title {
